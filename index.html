@@ -1,109 +1,159 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ленинградский финансовый центр</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav class="navbar is-transparent">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="#" class="navbar-item">
-            <img src="img/LFC.png" alt="" />
-          </a>
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ленинградский финансовый центр</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar is-transparent">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="#" class="navbar-item">
+          <img src="img/LFC.png" alt="" />
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item region">
+            <span class="region-header">Ваш регион</span>
+            <div class="region-body">
+              <span class="icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </span>
+              <span>Москва и Московская область</span>
+            </div>
+          </div>
         </div>
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-item region">
-              <span class="region-header">Ваш регион</span>
-              <div class="region-body">
-                <span class="icon">
-                  <i class="fas fa-map-marker-alt"></i>
+        <div class="navbar-end">
+          <a href="" class="navbar-item">
+            <span class="icon">
+              <i class="fas fa-phone"></i>
+            </span>
+            <span>8 800 555 55 55</span>
+          </a>
+          <div class="navbar-item">
+            <button class="button is-info">Заказать звонок</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar is-transparent">
+    <div class="container">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="" class="navbar-item">Сбережения</a>
+          <a href="" class="navbar-item">Займы</a>
+          <a href="" class="navbar-item">Страхование</a>
+          <a href="" class="navbar-item">О кооперативе</a>
+          <a href="" class="navbar-item">Документы</a>
+          <a href="" class="navbar-item">Отзывы</a>
+          <a href="" class="navbar-item">Контакты</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="hero is-link">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-gapless">
+          <div class="column is-two-fifths-desktop is-half-tablet is-full-mobile">
+            <span>Сбережения</span>
+            <h1 class="title">13,5%</h1>
+            <p class="subtitle">годовых</p>
+            <p>Акция действует до 10 марта!</p>
+            <button class="button is-info">Узнать подробности</button>
+          </div>
+          <div class="column hero-image is-hidden-mobile"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section calculator">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop">
+          <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
+          <div class="calc-fields">
+            <div class="field">
+              <label class="label">Сумма сбережений</label>
+              <p class="control">
+                <input class="input" type="summ" value="100 000" placeholder="Введите сумму сбережений">
+                <span class="active-placeholder">
+                  рублей
                 </span>
-                <span>Москва и Московская область</span>
+                <input class="slider" type="range" min="3" max="36">
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">Выплата процентов</label>
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option selected>Ежемесячно</option>
+                    <option>В конце срока с капитализацией</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Сумма пополнения</label>
+              <p class="control">
+                <input class="input" type="summ" value="0" placeholder="Введите сумму сбережений">
+                <span class="active-placeholder">
+                  рублей / месяц
+                </span>
+                <input class="slider" type="range" min="3" max="36">
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">Срок сбережения</label>
+              <p class="control">
+                <input class="input" type="summ" value="12" placeholder="Введите сумму сбережений">
+                <span class="active-placeholder">
+                  месяцев
+                </span>
+                <input class="slider" type="range" min="3" max="36">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-content">
+              <div class="attention">
+                <span>Ваш доход от вложений</span>
+                <span class="number-attention">200 000 Р</span>
+              </div>
+              <div class="attention">
+                <span>Процентная ставка</span>
+                <span class="number-attention">13,5%</span>
+              </div>
+              <div class="attention">
+                <span>Вы получите</span>
+                <span class="number-attention">300 000 Р</span>
               </div>
             </div>
           </div>
-          <div class="navbar-end">
-            <a href="" class="navbar-item">
-              <span class="icon">
-                <i class="fas fa-phone"></i>
-              </span>
-              <span>8 800 555 55 55</span>
-            </a>
-            <div class="navbar-item">
-              <button class="button is-info">Заказать звонок</button>
-            </div>
-          </div>
         </div>
       </div>
-    </nav>
-    <nav class="navbar is-transparent">
-      <div class="container">
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <a href="" class="navbar-item">Сбережения</a>
-            <a href="" class="navbar-item">Займы</a>
-            <a href="" class="navbar-item">Страхование</a>
-            <a href="" class="navbar-item">О кооперативе</a>
-            <a href="" class="navbar-item">Документы</a>
-            <a href="" class="navbar-item">Отзывы</a>
-            <a href="" class="navbar-item">Контакты</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <section class="hero is-link">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns is-gapless">
-            <div
-              class="column is-two-fifths-desktop is-half-tablet is-full-mobile"
-            >
-              <span>Сбережения</span>
-              <h1 class="title">13,5%</h1>
-              <p class="subtitle">годовых</p>
-              <p>Акция действует до 10 марта!</p>
-              <button class="button is-info">Узнать подробности</button>
-            </div>
-            <div class="column hero-image is-hidden-mobile"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section calculator">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-three-fifths-desktop">
-            <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script type="text/javascript" src="lib/main.js"></script>
-  </body>
+    </div>
+  </section>
+  <script type="text/javascript" src="lib/main.js"></script>
+</body>
+
 </html>

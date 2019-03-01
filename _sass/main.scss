@@ -12,12 +12,15 @@
 // Update the blue shade, used for links
 $white-ter: #f3f5fa;
 $cyan: #3c80f9;
-$blue: #042b67;
+$blue: #092962;
 $grey-1: #555;
+$grey-2: #6577A2;
+$grey-3: #D0D7E8;
+$grey-4: #B4C1DB;
+$grey-5: #DDE2ED;
 $black-1: #262626;
 // Add pink and its invert
 // Update the sans-serif font family
-$family-sans-serif: 'OpenSans', 'Helvetica', 'Arial', sans-serif;
 $button-padding-vertical: 10px;
 $button-padding-horizontal: 22px;
 // 3. Set the derived variables
@@ -28,7 +31,8 @@ $navbar-item-img-max-height: 3.5rem;
 @import '../node_modules/bulma/bulma';
 
 body {
-  font-family: 'OpenSans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  
 
   .button {
     border-radius: 0;
@@ -39,6 +43,7 @@ body {
   .card-content {
     padding: 48px;
   }
+
 }
 
 .fa-phone {
@@ -56,6 +61,7 @@ body {
   .navbar-item {
     font-size: 15px;
     color: $blue;
+    transition-duration: 0.3s;
   }
 
   .region {
@@ -88,8 +94,12 @@ body {
 
 .navbar:last-of-type {
   border-top: 1px solid #e6e6e6;
-  background: $white-ter;
   box-shadow: 0 6px 16px rgba(34, 34, 34, 0.15);
+
+  a.navbar-item:hover {
+    background-color: $cyan !important;
+    color: #fff;
+  }
 }
 
 .hero {
@@ -102,11 +112,12 @@ body {
   }
 
   span {
-    font-size: 14px;
+    font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
     display: block;
+    font-weight: 700;
   }
 
   .title {
@@ -117,7 +128,7 @@ body {
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 40px;
     margin-top: 16px;
   }
@@ -132,7 +143,126 @@ body {
 .calculator {
   .title {
     color: $blue;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .calc-fields {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $grey-2;
+  }
+
+  .field {
+    width: 48%;
+    display: inline-block;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+
+  .input {
+    position: relative;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    padding: 20px 25px;
+    color: $blue;
+    font-weight: 500;
+  }
+
+  .select {
+    height: auto;
+    width: 100%;
+  }
+  select {
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    padding: 20px 25px;
+    color: $blue;
+    font-weight: 500;
+    width: 100%;
+
+  }
+
+  span.active-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: $grey-1;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .slider {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    -webkit-appearance: none !important;
+    height: 3px;
+    background-color: $cyan;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: $cyan;
+    cursor: pointer;
+
+    &:hover {
+      background: $blue;
+    }
+  }
+
+  .card {
+    background: $white-ter;
+    box-shadow: none;
+    height: 100%;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $grey-2;
+    }
+    .number-attention {
+      display: block;
+      color: $blue;
+      font-size: 36px;
+      font-weight: 900;
+      
+    }
+  }
+}
+
+@media screen and (min-width: 1472px) {
+  .container {
+    max-width: 1152px;
   }
 }
