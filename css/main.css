@@ -6928,12 +6928,31 @@ label.panel-block {
 
 body {
   font-family: 'Roboto', sans-serif; }
+  body .title.is-3 {
+    color: #3c80f9;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px; }
   body .button {
     border-radius: 0;
     font-size: 15px;
     height: auto; }
+  body .card {
+    background: #f3f5fa;
+    box-shadow: none;
+    height: 100%; }
   body .card-content {
-    padding: 48px; }
+    padding: 36px; }
+    body .card-content .title {
+      color: #092962; }
+    body .card-content p {
+      color: #586577;
+      font-size: 15px;
+      line-height: 150%; }
+    body .card-content i {
+      font-size: 64px;
+      color: #3c80f9;
+      display: block; }
 
 .fa-phone {
   transform: rotate(90deg);
@@ -6958,7 +6977,7 @@ body {
   .navbar .region .region-header {
     display: block;
     width: 100%;
-    color: #555;
+    color: #586577;
     font-size: 12px;
     margin-bottom: 5px; }
   .navbar .region .region-body {
@@ -7012,7 +7031,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 30px;
-  margin-top: 20px; }
+  margin-top: 40px; }
 
 .calculator .calc-fields {
   display: flex;
@@ -7029,7 +7048,7 @@ body {
   width: 48%;
   display: inline-block;
   margin-top: 60px;
-  margin-bottom: 20px; }
+  margin-bottom: 40px; }
 
 .calculator .input {
   position: relative;
@@ -7058,7 +7077,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  color: #555;
+  color: #586577;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -7085,25 +7104,54 @@ body {
   .calculator .slider::-webkit-slider-thumb:hover {
     background: #092962; }
 
-.calculator .card {
-  background: #f3f5fa;
-  box-shadow: none;
+.calculator .card .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%; }
-  .calculator .card .card-content {
+  .calculator .card .card-content .button {
+    padding: 15px 22px; }
+
+.calculator .card span {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6577A2; }
+
+.calculator .card .number-attention {
+  display: block;
+  color: #092962;
+  font-size: 36px;
+  font-weight: 900; }
+
+.insurance .card {
+  transition: 0.4s ease-in-out; }
+  .insurance .card .card-content {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; }
-  .calculator .card span {
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #6577A2; }
-  .calculator .card .number-attention {
-    display: block;
-    color: #092962;
-    font-size: 36px;
-    font-weight: 900; }
+    flex-direction: column; }
+    .insurance .card .card-content .details {
+      margin-top: 24px;
+      padding: 8px;
+      background-color: #D0D7E8; }
+      .insurance .card .card-content .details i {
+        font-size: 13px; }
+      .insurance .card .card-content .details .icon {
+        margin-right: 4px; }
+      .insurance .card .card-content .details span {
+        font-size: 13px; }
+  .insurance .card .icon {
+    height: auto;
+    width: auto;
+    margin-right: 28px; }
+  .insurance .card img {
+    margin: 0 auto 32px; }
+  .insurance .card .title.is-4 {
+    display: flex;
+    align-items: center; }
+  .insurance .card .card-header {
+    box-shadow: none;
+    display: flex;
+    margin-bottom: 32px; }
 
 @media screen and (min-width: 1472px) {
   .container {

@@ -13,7 +13,7 @@
 $white-ter: #f3f5fa;
 $cyan: #3c80f9;
 $blue: #092962;
-$grey-1: #555;
+$grey-1: #586577;
 $grey-2: #6577A2;
 $grey-3: #D0D7E8;
 $grey-4: #B4C1DB;
@@ -33,17 +33,41 @@ $navbar-item-img-max-height: 3.5rem;
 body {
   font-family: 'Roboto', sans-serif;
   
-
+  .title.is-3 {
+    color: $cyan;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
   .button {
     border-radius: 0;
     font-size: 15px;
     height: auto;
   }
-
-  .card-content {
-    padding: 48px;
+  .card {
+    background: $white-ter;
+    box-shadow: none;
+    height: 100%;
   }
+  .card-content {
+    padding: 36px;
 
+    .title {
+      color: $blue;
+    }
+
+    p {
+      color: $grey-1;
+      font-size: 15px;
+      line-height: 150%;
+    }
+
+    i {
+      font-size: 64px;
+      color: $cyan;
+      display: block;
+    }
+  }
 }
 
 .fa-phone {
@@ -146,7 +170,7 @@ body {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   .calc-fields {
@@ -166,7 +190,7 @@ body {
     width: 48%;
     display: inline-block;
     margin-top: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .input {
@@ -234,15 +258,15 @@ body {
   }
 
   .card {
-    background: $white-ter;
-    box-shadow: none;
-    height: 100%;
-
     .card-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+
+      .button {
+        padding: 15px 22px;
+      }
     }
 
     span {
@@ -259,6 +283,60 @@ body {
       
     }
   }
+}
+
+.insurance {
+  .card {
+    transition: 0.4s ease-in-out;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+
+      .details {
+        margin-top: 24px;
+        padding: 8px;
+        background-color: $grey-3;
+
+        i {
+          font-size: 13px;
+        }
+
+        .icon {
+          margin-right: 4px;
+        }
+
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+    
+    .icon {
+      height: auto;
+      width: auto;
+      margin-right: 28px;
+
+    }
+
+    img {
+      margin: 0 auto 32px;
+    }
+
+    .title.is-4 {
+      display: flex;
+      align-items: center;
+    }
+
+    .card-header {
+      box-shadow: none;
+      display: flex;
+      margin-bottom: 32px;
+    }
+  }
+  
+  
+
 }
 
 @media screen and (min-width: 1472px) {
