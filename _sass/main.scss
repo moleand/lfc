@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+// 1. Import the initial variables
+@import '../node_modules/bulma/sass/utilities/initial-variables';
+
+// 2. Set your own initial variables
+// Update the blue shade, used for links
+$white-ter: #f3f5fa;
+$cyan: #3c80f9;
+$blue: #042b67;
+$grey-1: #555;
+$black-1: #262626;
+// Add pink and its invert
+// Update the sans-serif font family
+$family-sans-serif: 'OpenSans', 'Helvetica', 'Arial', sans-serif;
+$button-padding-vertical: 10px;
+$button-padding-horizontal: 22px;
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$navbar-item-img-max-height: 3.5rem;
+// 4. Import the rest of Bulma
+
+@import '../node_modules/bulma/bulma';
+
+body {
+  font-family: 'OpenSans', sans-serif;
+
+  .button {
+    border-radius: 0;
+    font-size: 15px;
+    height: auto;
+  }
+
+  .card-content {
+    padding: 48px;
+  }
+}
+
+.fa-phone {
+  transform: rotate(90deg);
+  margin-right: 10px;
+}
+.navbar {
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .navbar-menu {
+    margin-left: -12px;
+  }
+
+  .navbar-item {
+    font-size: 15px;
+    color: $blue;
+  }
+
+  .region {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-left: 30px;
+
+    .region-header {
+      display: block;
+      width: 100%;
+      color: $grey-1;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .region-body {
+      display: flex;
+      align-items: flex-start;
+      .icon {
+        height: 18px;
+      }
+    }
+  }
+
+  .navbar-item + .navbar-item {
+    margin-left: 20px;
+  }
+}
+
+.navbar:last-of-type {
+  border-top: 1px solid #e6e6e6;
+  background: $white-ter;
+  box-shadow: 0 6px 16px rgba(34, 34, 34, 0.15);
+}
+
+.hero {
+  .hero-image {
+    // background-image: url('../img/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: -48px 0;
+  }
+
+  span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    display: block;
+  }
+
+  .title {
+    margin-top: 5px;
+    font-size: 96px;
+    line-height: 100%;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 40px;
+    margin-top: 16px;
+  }
+
+  .subtitle {
+    font-size: 36px;
+    display: inline-block;
+    font-weight: 700;
+  }
+}
+
+.calculator {
+  .title {
+    color: $blue;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
