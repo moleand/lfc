@@ -14,10 +14,10 @@ $white-ter: #f3f5fa;
 $cyan: #3c80f9;
 $blue: #092962;
 $grey-1: #586577;
-$grey-2: #6577A2;
-$grey-3: #D0D7E8;
-$grey-4: #B4C1DB;
-$grey-5: #DDE2ED;
+$grey-2: #6577a2;
+$grey-3: #d0d7e8;
+$grey-4: #b4c1db;
+$grey-5: #dde2ed;
 $black-1: #262626;
 // Add pink and its invert
 // Update the sans-serif font family
@@ -29,20 +29,33 @@ $navbar-item-img-max-height: 3.5rem;
 // 4. Import the rest of Bulma
 
 @import '../node_modules/bulma/bulma';
+@import '../node_modules/bulma-pricingtable/src/sass/index';
 
 body {
   font-family: 'Roboto', sans-serif;
-  
+
   .title.is-3 {
     color: $cyan;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
+
+  h2.title {
+    color: $blue;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
   .button {
     border-radius: 0;
     font-size: 15px;
     height: auto;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 10px 45px 0 rgba(0, 14, 49, 0.24);
+    }
   }
   .card {
     background: $white-ter;
@@ -166,9 +179,6 @@ body {
 
 .calculator {
   .title {
-    color: $blue;
-    font-size: 32px;
-    font-weight: 700;
     margin-bottom: 30px;
     margin-top: 40px;
   }
@@ -215,7 +225,6 @@ body {
     color: $blue;
     font-weight: 500;
     width: 100%;
-
   }
 
   span.active-placeholder {
@@ -280,7 +289,6 @@ body {
       color: $blue;
       font-size: 36px;
       font-weight: 900;
-      
     }
   }
 }
@@ -292,14 +300,22 @@ body {
     .card-content {
       display: flex;
       flex-direction: column;
+      height: 100%;
+
+      p {
+        margin-bottom: auto;
+      }
 
       .details {
         margin-top: 24px;
         padding: 8px;
         background-color: $grey-3;
+        transition: 0.2s ease-in-out;
 
         i {
           font-size: 13px;
+          color: $blue;
+          transition: 0.2s ease-in-out;
         }
 
         .icon {
@@ -309,14 +325,26 @@ body {
         span {
           font-size: 13px;
         }
+
+        &:hover {
+          background-color: $cyan;
+          color: #fff;
+
+          i {
+            color: #fff;
+          }
+        }
+      }
+
+      .button {
+        margin-top: 12px;
       }
     }
-    
+
     .icon {
       height: auto;
       width: auto;
       margin-right: 28px;
-
     }
 
     img {
@@ -334,9 +362,36 @@ body {
       margin-bottom: 32px;
     }
   }
-  
-  
+}
 
+.savings {
+  .pricing-table {
+    .pricing-plan {
+      border: none;
+      .plan-header {
+        color: $blue;
+      }
+    }
+    .pricing-plan.is-active {
+      border: none;
+    }
+    .plan-items {
+      .plan-item {
+        color: $grey-1;
+        border-image-width: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .plan-item:nth-child(even) {
+    background: none;
+  }
+}
+
+.call-back {
+  background: $white-ter;
 }
 
 @media screen and (min-width: 1472px) {

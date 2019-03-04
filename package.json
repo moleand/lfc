@@ -69,6 +69,7 @@
   },
   "version": "0.0.3",
   "dependencies": {
+    "bulma-pricingtable": "^0.2.0",
     "vue": "^2.6.8"
   }
 }
