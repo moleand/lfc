@@ -70,9 +70,9 @@
       <div class="container">
         <div class="navbar-menu">
           <div class="navbar-start">
-            <a href="" class="navbar-item">Сбережения</a>
+            <a href="#savings" class="navbar-item">Сбережения</a>
             <a href="" class="navbar-item">Займы</a>
-            <a href="" class="navbar-item">Страхование</a>
+            <a href="#insurance" class="navbar-item">Страхование</a>
             <a href="" class="navbar-item">О кооперативе</a>
             <a href="" class="navbar-item">Документы</a>
             <a href="" class="navbar-item">Отзывы</a>
@@ -187,7 +187,7 @@
         </div>
       </div>
     </section>
-    <section class="section insurance">
+    <section class="section insurance" id="insurance">
       <div class="container">
         <h2 class="title is-3">Страхование</h2>
         <div class="columns is-multiline">
@@ -310,7 +310,7 @@
         </div>
       </div>
     </section>
-    <section class="section savings">
+    <section class="section savings" id="savings">
       <div class="container">
         <h2 class="title is-3">Сбережения</h2>
         <div class="pricing-table is-comparative">
@@ -370,7 +370,6 @@
               </button>
             </div>
           </div>
-
           <div class="pricing-plan is-active is-info">
             <div class="plan-header">Накопительная</div>
             <div class="plan-price">
@@ -406,13 +405,10 @@
               <button class="button is-fullwidth">Оставить заявку</button>
             </div>
           </div>
-
           <div class="pricing-plan is-link">
             <div class="plan-header">Инвестиционная</div>
             <div class="plan-price">
-              <span class="plan-price-amount"
-                >13,95%+</span
-              >/год
+              <span class="plan-price-amount">13,95%+</span>/год
             </div>
             <div class="plan-items">
               <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
@@ -448,6 +444,36 @@
     <section class="section call-back">
       <div class="container">
         <h2 class="title">Поможем Вам подобрать программу</h2>
+        <div class="columns is-multiline">
+          <div class="column is-one-third">
+            <div class="box">
+              <img src="img/manager.jpg" alt="" class="manager-photo" />
+              <div class="manager-info">
+                <p class="manager-call-to-action">
+                  Позвоните нашему менеджеру
+                </p>
+                <a href="" class="phone-number">8 (800) 555-93-84</a>
+                <p class="manager-name">Наталье Ивановой</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-two-thirds">
+            <div class="box">
+              <p class="manager-call-to-action">
+                Или оставьте свой телефон, мы Вам перезвоним!
+              </p>
+              <div class="form">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Введите свой номер"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <script type="text/javascript" src="lib/main.js"></script>

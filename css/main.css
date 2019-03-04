@@ -7555,6 +7555,25 @@ body {
 
 .call-back {
   background: #f3f5fa; }
+  .call-back .box {
+    background: none;
+    box-shadow: none;
+    display: flex;
+    padding: 0;
+    align-items: flex-start; }
+    .call-back .box .manager-info {
+      margin-left: 12px; }
+    .call-back .box p {
+      font-size: 16px;
+      color: #092962; }
+    .call-back .box .phone-number {
+      color: #3c80f9;
+      font-size: 28px; }
+  .call-back .manager-photo {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 90px;
+    width: 90px; }
 
 @media screen and (min-width: 1472px) {
   .container {
