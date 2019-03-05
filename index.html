@@ -1,481 +1,245 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ленинградский финансовый центр</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
 
-  <body>
-    <div id="app">Регион: {{ region }}, Город: {{ city }}</div>
-    <nav class="navbar is-transparent">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="#" class="navbar-item">
-            <img src="img/LFC.png" alt="" />
-          </a>
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-item region">
-              <span class="region-header">Ваш регион</span>
-              <div class="region-body">
-                <span class="icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </span>
-                <span>Москва и Московская область</span>
-              </div>
-            </div>
-          </div>
-          <div class="navbar-end">
-            <a href="" class="navbar-item">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ленинградский финансовый центр</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app">Регион: {{region}}, Город: {{city}}</div>
+  <nav class="navbar is-transparent">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="#" class="navbar-item">
+          <img src="img/LFC.png" alt="" />
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item region">
+            <span class="region-header">Ваш регион</span>
+            <div class="region-body">
               <span class="icon">
-                <i class="fas fa-phone"></i>
+                <i class="fas fa-map-marker-alt"></i>
               </span>
-              <span>8 800 555 55 55</span>
-            </a>
-            <div class="navbar-item">
-              <button class="button is-info">Заказать звонок</button>
+              <span>Москва и Московская область</span>
             </div>
           </div>
         </div>
+        <div class="navbar-end">
+          <a href="" class="navbar-item">
+            <span class="icon">
+              <i class="fas fa-phone"></i>
+            </span>
+            <span>8 800 555 55 55</span>
+          </a>
+          <div class="navbar-item">
+            <button class="button is-info">Заказать звонок</button>
+          </div>
+        </div>
       </div>
-    </nav>
-    <nav class="navbar is-transparent">
+    </div>
+  </nav>
+  <nav class="navbar is-transparent">
+    <div class="container">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="" class="navbar-item">Сбережения</a>
+          <a href="" class="navbar-item">Займы</a>
+          <a href="" class="navbar-item">Страхование</a>
+          <a href="" class="navbar-item">О кооперативе</a>
+          <a href="" class="navbar-item">Документы</a>
+          <a href="" class="navbar-item">Отзывы</a>
+          <a href="" class="navbar-item">Контакты</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="hero is-link">
+    <div class="hero-body">
       <div class="container">
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <a href="#savings" class="navbar-item">Сбережения</a>
-            <a href="" class="navbar-item">Займы</a>
-            <a href="#insurance" class="navbar-item">Страхование</a>
-            <a href="" class="navbar-item">О кооперативе</a>
-            <a href="" class="navbar-item">Документы</a>
-            <a href="" class="navbar-item">Отзывы</a>
-            <a href="" class="navbar-item">Контакты</a>
+        <div class="columns is-gapless">
+          <div class="column is-two-fifths-desktop is-half-tablet is-full-mobile">
+            <span>Сбережения</span>
+            <h1 class="title">13,5%</h1>
+            <p class="subtitle">годовых</p>
+            <p>Акция действует до 10 марта!</p>
+            <button class="button is-info">Узнать подробности</button>
           </div>
+          <div class="column hero-image is-hidden-mobile"></div>
         </div>
       </div>
-    </nav>
-    <section class="hero is-link">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns is-gapless">
-            <div
-              class="column is-two-fifths-desktop is-half-tablet is-full-mobile"
-            >
-              <span>Сбережения</span>
-              <h1 class="title">13,5%</h1>
-              <p class="subtitle">годовых</p>
-              <p>Акция действует до 10 марта!</p>
-              <button class="button is-info">Узнать подробности</button>
+    </div>
+  </section>
+  <section class="section calculator" id="bank">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop">
+          <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
+          <div class="calc-fields">
+            <div class="field">
+              <label class="label">Сумма сбережений</label>
+              <p class="control">
+                <input class="input" type="summ" value="100 000" min="30000" max="10000000" placeholder="Введите сумму сбережений" v-model="savings" @input="culcResult">
+                <span class="active-placeholder">
+                  рублей
+                </span>
+                <input class="slider" type="range" min="3" max="1000" @input="culcSavings($event)" :value="savings/10000">
+              </p>
             </div>
-            <div class="column hero-image is-hidden-mobile"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section calculator">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-two-thirds-desktop">
-            <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
-            <div class="calc-fields">
-              <div class="field">
-                <label class="label">Сумма сбережений</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    type="summ"
-                    value="100 000"
-                    placeholder="Введите сумму сбережений"
-                  />
-                  <span class="active-placeholder">
-                    рублей
-                  </span>
-                  <input class="slider" type="range" min="3" max="36" />
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Выплата процентов</label>
-                <div class="control">
-                  <div class="select">
-                    <select>
-                      <option selected>Ежемесячно</option>
-                      <option>В конце срока с капитализацией</option>
-                    </select>
-                  </div>
+            <div class="field">
+              <label class="label">Выплата процентов</label>
+              <div class="control">
+                <div class="select">
+                  <select v-model="procentType" @change="culcResult">
+                    <option selected>Ежемесячно</option>
+                    <option>В конце срока с капитализацией</option>
+                  </select>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Сумма пополнения</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    type="summ"
-                    value="0"
-                    placeholder="Введите сумму сбережений"
-                  />
-                  <span class="active-placeholder">
-                    рублей / месяц
-                  </span>
-                  <input class="slider" type="range" min="3" max="36" />
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Срок сбережения</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    type="summ"
-                    value="12"
-                    placeholder="Введите сумму сбережений"
-                  />
-                  <span class="active-placeholder">
-                    месяцев
-                  </span>
-                  <input class="slider" type="range" min="3" max="36" />
-                </p>
               </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="attention">
-                  <span>Ваш доход от вложений</span>
-                  <span class="number-attention">200 000 Р</span>
-                </div>
-                <div class="attention">
-                  <span>Процентная ставка</span>
-                  <span class="number-attention">13,5%</span>
-                </div>
-                <div class="attention">
-                  <span>Вы получите</span>
-                  <span class="number-attention">300 000 Р</span>
-                </div>
-                <button class="button is-info">
-                  Отправить заявку
-                </button>
-              </div>
+            <div class="field">
+              <label class="label">Сумма пополнения</label>
+              <p class="control">
+                <input class="input" @input="culcResult" type="summ" max="500000" min="0" value="0" placeholder="Введите сумму сбережений" v-model="savingsPerMonth">
+                <span class="active-placeholder">
+                  рублей / месяц
+                </span>
+                <input class="slider" type="range" min="0" max="50" @input="culcSavingsPerMonth($event)" :value="savingsPerMonth/10000">
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">Срок сбережения</label>
+              <p class="control">
+                <input class="input" @input="culcResult" type="summ" value="12" placeholder="Введите сумму сбережений" v-model="period">
+                <span class="active-placeholder">
+                  месяцев
+                </span>
+                <input class="slider" type="range" min="3" max="36" @input="periodFunc($event)" :value="period">
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section insurance" id="insurance">
-      <div class="container">
-        <h2 class="title is-3">Страхование</h2>
-        <div class="columns is-multiline">
-          <div class="column is-half">
-            <div class="card">
-              <div class="card-content">
-                <div class="card-header">
-                  <span class="icon">
-                    <i class="fas fa-briefcase"></i>
-                  </span>
-                  <h3 class="title is-4">
-                    Надежность сбережений и высокий доход
-                  </h3>
-                </div>
-                <p>
-                  Кооператив привлекает деньги населения в виде сбережений под
-                  высокий процент, и выдает займы населению обеспеченные залогом
-                  в виде недвижимости и автомобилей, снижая риски невозврата
-                  займов.
-                </p>
+        <div class="column">
+          <div class="card">
+            <div class="card-content">
+              <div class="attention">
+                <span>Ваш доход от вложений</span>
+                <span class="number-attention">{{result}} Р</span>
               </div>
-            </div>
-          </div>
-          <div class="column is-half">
-            <div class="card">
-              <div class="card-content">
-                <div class="card-header">
-                  <span class="icon">
-                    <i class="fas fa-briefcase"></i>
-                  </span>
-                  <h3 class="title is-4">Формируем резервы</h3>
-                </div>
-                <p>
-                  По указанию ЦБ РФ 3332-У формируем резервы на возможные потери
-                  по займам физических лиц из собственных средств кооператива. В
-                  кооперативе сформирован резервный фонд, который защищает
-                  сбережения пайщиков.
-                </p>
+              <div class="attention">
+                <span>Процентная ставка</span>
+                <span class="number-attention">13,5%</span>
               </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/insurance.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Сбережения пайщиков застрахованы
-                  </h3>
-                </div>
-                <p>
-                  Сбережения пайщиков застрахованы на всю сумму в
-                  «Межрегиональном обществе взаимного страхования». Каждому
-                  пайщику выдаётся именное свидетельство, по которому сбережения
-                  подлежат 100% возврату. По договору КПК «МФЦ» оформляет
-                  индивидуальный сертификат между страховой компанией и
-                  пайщиком. При этом, общая сумма страхования увеличивается на
-                  сумму привлеченных в КПК средств.
-                </p>
-                <a href="" class="details">
-                  <span class="icon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                  <span>Индивидуальный страховой сертификат</span>
-                </a>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
+              <div class="attention">
+                <span>Вы получите</span>
+                <span class="number-attention">{{income}} Р</span>
               </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/standarts.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Соблюдаем отраслевые стандарты
-                  </h3>
-                </div>
-                <p>
-                  КПК «Московский Финансовый Центр» — действующий член СРО
-                  «Центральное Кредитное Объединение» и внесен в реестр под
-                  регистрационным номером 54 от 7.07.11. СРО защищает финансовые
-                  интересы пайщиков. Ведем отчетность по стандартам принятым
-                  членами СРО (ЦКО) стандартами ЦБ РФ.
-                </p>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/cbrf.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Работаем под контролем ЦБ РФ
-                  </h3>
-                </div>
-                <p>
-                  Строго соблюдаем нормативы и постановление ЦБ РФ. Деятельность
-                  регулируется Федеральным законом от 18.07.2009 №190-ФЗ «О
-                  кредитной кооперации»
-                </p>
-                <a href="" class="details">
-                  <span class="icon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                  <span>Индивидуальный страховой сертификат</span>
-                </a>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section savings" id="savings">
-      <div class="container">
-        <h2 class="title is-3">Сбережения</h2>
-        <div class="pricing-table is-comparative">
-          <div class="pricing-plan is-features">
-            <div class="plan-header">Программы</div>
-            <div class="plan-price">
-              <span class="plan-price-amount">&nbsp;</span>
-            </div>
-            <div class="plan-items">
-              <div class="plan-item">Срок</div>
-              <div class="plan-item">от 30 000 Р</div>
-              <div class="plan-item">от 500 000 Р</div>
-              <div class="plan-item">от 1 000 000 Р</div>
-              <div class="plan-item">Выплата процентов</div>
-              <div class="plan-item">Пополнение</div>
-              <div class="plan-item">Капитализация</div>
-              <div class="plan-item">Частичное снятие</div>
-              <div class="plan-item">Досрочное расторжение</div>
-              <div class="plan-item">Особые условия</div>
-            </div>
-            <div class="plan-footer"></div>
-          </div>
-          <div class="pricing-plan is-link">
-            <div class="plan-header">Пенсионная</div>
-            <div class="plan-price">
-              <span class="plan-price-amount"
-                ><span class="plan-price-currency">до</span>13,5%</span
-              >/год
-            </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">12,0%</div>
-              <div class="plan-item" data-feature="от 500 000 Р">12,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                ежемесячно/в конце срока
-              </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 10 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                не более 25%
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                Да, по ставке 0.1%
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                -
-              </div>
-            </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">
-                Оставить заявку
+              <button class="button is-info">
+                Отправить заявку
               </button>
             </div>
           </div>
-          <div class="pricing-plan is-active is-info">
-            <div class="plan-header">Накопительная</div>
-            <div class="plan-price">
-              <span class="plan-price-amount"
-                ><span class="plan-price-currency">до</span>13,95%</span
-              >/год
-            </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">12,5%</div>
-              <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                ежемесячно/в конце срока
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section insurance">
+    <div class="container">
+      <h2 class="title is-3">Страхование</h2>
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-header">
+                <span class="icon">
+                  <i class="fas fa-briefcase"></i>
+                </span>
+                <h3 class="title is-4">Надежность сбережений и высокий доход</h3>
               </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 10 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                -
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                Да, по ставке 0.1%
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                -
-              </div>
-            </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">Оставить заявку</button>
+              <p>Кооператив привлекает деньги населения в виде сбережений под высокий процент, и выдает займы населению
+                обеспеченные залогом в виде недвижимости и автомобилей, снижая риски невозврата займов.</p>
             </div>
           </div>
-          <div class="pricing-plan is-link">
-            <div class="plan-header">Инвестиционная</div>
-            <div class="plan-price">
-              <span class="plan-price-amount">13,95%+</span>/год
+        </div>
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-header">
+                <span class="icon">
+                  <i class="fas fa-briefcase"></i>
+                </span>
+                <h3 class="title is-4">Формируем резервы</h3>
+              </div>
+              <p>По указанию ЦБ РФ 3332-У формируем резервы на возможные потери по займам физических лиц из собственных
+                средств кооператива. В кооперативе сформирован резервный фонд, который защищает сбережения пайщиков.</p>
             </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">-</div>
-              <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                в конце срока
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <img src="img/insurance.png" alt="">
+              <div class="card-header">
+                <h3 class="title is-4 has-text-centered">Сбережения пайщиков застрахованы</h3>
               </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 500 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                -
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                -
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                13,95% +
-              </div>
+              <p>Сбережения пайщиков застрахованы на всю сумму в «Межрегиональном обществе взаимного страхования».
+                Каждому пайщику выдаётся именное свидетельство, по которому сбережения подлежат 100% возврату. По
+                договору КПК «МФЦ» оформляет индивидуальный сертификат между страховой компанией и пайщиком. При этом,
+                общая сумма страхования увеличивается на сумму привлеченных в КПК средств.</p>
+              <a href="" class="details">
+                <span class="icon">
+                  <i class="fas fa-search"></i>
+                </span>
+                <span>Индивидуальный страховой сертификат</span>
+              </a>
             </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">Оставить заявку</button>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <img src="img/standarts.png" alt="">
+              <div class="card-header">
+                <h3 class="title is-4 has-text-centered">Соблюдаем отраслевые стандарты</h3>
+              </div>
+              <p>КПК «Московский Финансовый Центр» — действующий член СРО «Центральное Кредитное Объединение» и внесен в
+                реестр под регистрационным номером 54 от 7.07.11. СРО защищает финансовые интересы пайщиков. Ведем
+                отчетность по стандартам принятым членами СРО (ЦКО) стандартами ЦБ РФ.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <img src="img/cbrf.png" alt="">
+              <div class="card-header">
+                <h3 class="title is-4 has-text-centered">Работаем под контролем ЦБ РФ</h3>
+              </div>
+              <p>Строго соблюдаем нормативы и постановление ЦБ РФ. Деятельность регулируется Федеральным законом от
+                18.07.2009 №190-ФЗ «О кредитной кооперации» </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section call-back">
-      <div class="container">
-        <h2 class="title">Поможем Вам подобрать программу</h2>
-        <div class="columns is-multiline">
-          <div class="column is-one-third">
-            <div class="box">
-              <img src="img/manager.jpg" alt="" class="manager-photo" />
-              <div class="manager-info">
-                <p class="manager-call-to-action">
-                  Позвоните нашему менеджеру
-                </p>
-                <a href="" class="phone-number">8 (800) 555-93-84</a>
-                <p class="manager-name">Наталье Ивановой</p>
-              </div>
-            </div>
-          </div>
-          <div class="column is-two-thirds">
-            <div class="box">
-              <p class="manager-call-to-action">
-                Или оставьте свой телефон, мы Вам перезвоним!
-              </p>
-              <div class="form">
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Введите свой номер"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script type="text/javascript" src="lib/main.js"></script>
-  </body>
+    </div>
+  </section>
+ <script type="text/javascript" src="lib/main.js"></script>
+</body>
+
 </html>
