@@ -302,6 +302,11 @@ body {
       flex-direction: column;
       height: 100%;
 
+      img {
+        width: 60px;
+        color: $cyan;
+      }
+
       p {
         margin-bottom: auto;
       }
@@ -359,7 +364,19 @@ body {
     .card-header {
       box-shadow: none;
       display: flex;
+      align-items: center;
       margin-bottom: 32px;
+      min-height: 52px;
+
+      figure.image {
+        display: flex;
+        align-items: center;
+        margin-right: 18px;
+
+        img {
+          margin: 0;
+        }
+      }
     }
   }
 }

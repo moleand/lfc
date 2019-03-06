@@ -7500,6 +7500,9 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%; }
+    .insurance .card .card-content img {
+      width: 60px;
+      color: #3c80f9; }
     .insurance .card .card-content p {
       margin-bottom: auto; }
     .insurance .card .card-content .details {
@@ -7534,7 +7537,15 @@ body {
   .insurance .card .card-header {
     box-shadow: none;
     display: flex;
-    margin-bottom: 32px; }
+    align-items: center;
+    margin-bottom: 32px;
+    min-height: 52px; }
+    .insurance .card .card-header figure.image {
+      display: flex;
+      align-items: center;
+      margin-right: 18px; }
+      .insurance .card .card-header figure.image img {
+        margin: 0; }
 
 .savings .pricing-table .pricing-plan {
   border: none; }
