@@ -70,7 +70,7 @@ body {
     }
 
     p {
-      color: $grey-1;
+      color: $grey-2;
       font-size: 15px;
       line-height: 150%;
     }
@@ -110,7 +110,7 @@ body {
     .region-header {
       display: block;
       width: 100%;
-      color: $grey-1;
+      color: $grey-2;
       font-size: 12px;
       margin-bottom: 5px;
     }
@@ -232,7 +232,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    color: $grey-1;
+    color: $grey-2;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -377,7 +377,7 @@ body {
     }
     .plan-items {
       .plan-item {
-        color: $grey-1;
+        color: $grey-2;
         border-image-width: 0;
         border: none;
         box-shadow: none;
@@ -392,24 +392,73 @@ body {
 
 .call-back {
   background: $white-ter;
+  h2.title {
+    margin-bottom: 48px;
+  }
+  p {
+    font-size: 16px;
+    color: $blue;
+  }
 
   .box {
     background: none;
     box-shadow: none;
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     align-items: flex-start;
+    height: 100%;
 
+    .manager-call-to-action {
+      display: block;
+      width: 100%;
+    }
     .manager-info {
-      margin-left: 12px;
+      margin-left: 24px;
     }
-    p {
-      font-size: 16px;
-      color: $blue;
-    }
+
     .phone-number {
       color: $cyan;
+      font-weight: bold;
       font-size: 28px;
+    }
+
+    .field {
+      margin-top: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .control {
+      width: 49%;
+      text-align: center;
+    }
+    input {
+      height: 44px;
+      border-radius: 0;
+      border: none;
+      border-left: 4px solid $cyan;
+      box-shadow: none;
+      box-shadow: 0 4px 6px 0 rgba(0, 14, 49, 0.1);
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    span {
+      font-size: 14px;
+      color: $grey-2;
+    }
+  }
+
+  .work-hours {
+    display: flex;
+
+    p:first-of-type {
+      margin-right: 15px;
+      color: $grey-2;
     }
   }
 
@@ -418,6 +467,206 @@ body {
     object-fit: cover;
     height: 90px;
     width: 90px;
+  }
+}
+
+.feedback {
+  .siema {
+    cursor: default !important;
+    margin: -12px;
+  }
+  .card-content {
+    i,
+    span {
+      font-size: 18px;
+      color: $blue;
+    }
+    .icon {
+      height: auto;
+      width: auto;
+      margin-right: 12px;
+    }
+    .open-original {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px;
+      background: $grey-3;
+      width: auto;
+
+      i,
+      span {
+        color: $blue;
+      }
+    }
+    p.feedback-content {
+      font-size: 14px;
+      margin-bottom: 24px;
+      margin-top: 24px;
+    }
+  }
+}
+
+.documents {
+  .box {
+    box-shadow: none;
+    padding: 0;
+  }
+  a:hover {
+    border: none;
+    box-shadow: none;
+
+    span {
+      color: $cyan;
+    }
+  }
+
+  span {
+    color: $blue;
+  }
+}
+
+.faq {
+  .questions-contacts {
+    height: auto;
+    background: none;
+
+    .card-content {
+      padding-top: 0;
+    }
+
+    p {
+      color: $blue;
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 32px;
+      color: $cyan;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+    }
+
+    span {
+      font-size: 14px;
+      color: $grey-2;
+    }
+  }
+
+  .accordion-header,
+  .accordion-body {
+    background: white;
+  }
+
+  .accordion__item + .accordion__item {
+    margin-top: 12px;
+  }
+
+  .accordion-header {
+    padding: 1.5em 1.5em;
+    color: $blue;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: $white-ter;
+  }
+
+  .accordion-header:hover {
+    background: $cyan;
+    position: relative;
+    z-index: 5;
+    color: #fff;
+  }
+
+  .accordion-body {
+    background: #fff;
+    color: $grey-2;
+    display: none;
+  }
+
+  .accordion-body__contents {
+    padding: 1.5em 1.5em;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  .accordion__item.active:last-child .accordion-header {
+    border-radius: none;
+  }
+
+  .accordion:first-child > .accordion__item > .accordion-header {
+    border-bottom: 1px solid transparent;
+  }
+
+  .accordion__item > .accordion-header:after {
+    content: '\f3d0';
+    font-family: IonIcons;
+    font-size: 1.2em;
+    float: right;
+    position: relative;
+    top: -2px;
+    transform: rotate(0deg);
+  }
+
+  .accordion__item.active > .accordion-header:after {
+    transform: rotate(-180deg);
+  }
+
+  .accordion__item.active .accordion-header {
+    background: $blue;
+    color: #fff;
+  }
+
+  .accordion__item .accordion__item .accordion-header {
+    background: #f1f1f1;
+    color: black;
+  }
+}
+
+.address {
+  .card-address {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    height: calc(100% - 42px);
+    width: 35%;
+
+    .card-content {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between !important;
+
+      span {
+        color: $grey-2;
+        font-size: 14px;
+      }
+
+      p,
+      a {
+        color: $blue;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .address-block {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+footer.footer {
+  padding: 3rem 1.5rem;
+  background: $white-ter;
+  img {
+    width: 100%;
+  }
+  p {
+    color: $grey-2;
+    font-size: 14px;
+  }
+  p + p {
+    margin-top: 12px;
   }
 }
 

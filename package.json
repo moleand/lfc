@@ -69,7 +69,9 @@
   },
   "version": "0.0.3",
   "dependencies": {
+    "bulma-carousel": "^4.0.1",
     "bulma-pricingtable": "^0.2.0",
+    "siema": "^1.5.1",
     "vue": "^2.6.8"
   }
 }
