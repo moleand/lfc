@@ -105,93 +105,22 @@
           <div class="column is-two-thirds-desktop">
             <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
             <div class="calc-fields">
-              <div class="field">
-                <label class="label">Сумма сбережений</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    type="summ"
-                    value="100 000"
-                    min="30000"
-                    max="10000000"
-                    placeholder="Введите сумму сбережений"
-                    v-model="savings"
-                    @input="culcResult"
-                  />
-                  <span class="active-placeholder">
-                    рублей
-                  </span>
-                  <input
-                    class="slider"
-                    type="range"
-                    min="3"
-                    max="1000"
-                    @input="culcSavings($event)"
-                    :value="savings/10000"
-                  />
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Выплата процентов</label>
-                <div class="control">
-                  <div class="select">
-                    <select v-model="procentType" @change="culcResult">
-                      <option selected>Ежемесячно</option>
-                      <option>В конце срока с капитализацией</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label">Сумма пополнения</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    @input="culcResult"
-                    type="summ"
-                    max="500000"
-                    min="0"
-                    value="0"
-                    placeholder="Введите сумму сбережений"
-                    v-model="savingsPerMonth"
-                  />
-                  <span class="active-placeholder">
-                    рублей / месяц
-                  </span>
-                  <input
-                    class="slider"
-                    type="range"
-                    min="0"
-                    max="50"
-                    @input="culcSavingsPerMonth($event)"
-                    :value="savingsPerMonth/10000"
-                  />
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Срок сбережения</label>
-                <p class="control">
-                  <input
-                    class="input"
-                    @input="culcResult"
-                    type="summ"
-                    value="12"
-                    placeholder="Введите сумму сбережений"
-                    v-model="period"
-                  />
-                  <span class="active-placeholder">
-                    месяцев
-                  </span>
-                  <input
-                    class="slider"
-                    type="range"
-                    min="3"
-                    max="36"
-                    @input="periodFunc($event)"
-                    :value="period"
-                  />
-                </p>
-              </div>
+
+              <input-field-text v-on:value-changed="savings = $event" label="Сумма сбережений"
+                                units="рублей" :max="10000000" :min="30000" :val="100000" :slider-mult="10000">
+              </input-field-text>
+
+              <input-field-select v-on:value-changed="procentType = $event" label="Выплата процентов"
+                                  :options="['Ежемесячно', 'В конце срока с капитализацией']">
+              </input-field-select>
+
+              <input-field-text v-on:value-changed="savingsPerMonth = $event" label="Сумма пополнения"
+                                units="рублей / месяц" :max="500000" :min="0" :val="0" :slider-mult="10000">
+              </input-field-text>
+
+              <input-field-text v-on:value-changed="period = $event" label="Срок сбережения"
+                                units="месяцев" :max="36" :min="3" :val="12" :slider-mult="1">
+              </input-field-text>
             </div>
           </div>
           <div class="column">
@@ -199,7 +128,7 @@
               <div class="card-content">
                 <div class="attention">
                   <span>Ваш доход от вложений</span>
-                  <span class="number-attention">{{ result }} Р</span>
+                  <span class="number-attention">{{ income.toLocaleString() }} Р</span>
                 </div>
                 <div class="attention">
                   <span>Процентная ставка</span>
@@ -207,7 +136,7 @@
                 </div>
                 <div class="attention">
                   <span>Вы получите</span>
-                  <span class="number-attention">{{ income }} Р</span>
+                  <span class="number-attention">{{ result.toLocaleString() }} Р</span>
                 </div>
                 <button class="button is-info">
                   Отправить заявку
@@ -845,7 +774,7 @@
         var $accordion_header = $accordion.find('.js-accordion-header');
         var $accordion_item = $('.js-accordion-item');
 
-        // default settings 
+        // default settings
         var settings = {
           // animation speed
           speed: 400,
