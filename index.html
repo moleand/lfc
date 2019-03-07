@@ -57,7 +57,7 @@
               <span class="icon">
                 <i class="fas fa-phone"></i>
               </span>
-              <span>8 800 555 55 55</span>
+              <span>8 (800) 555-93-84</span>
             </a>
             <div class="navbar-item">
               <button class="button is-info">Заказать звонок</button>
@@ -229,7 +229,7 @@
                   </h3>
                 </div>
                 <p>
-                  КПК «Московский Финансовый Центр» — действующий член СРО
+                  КПК «Ленинградский Финансовый Центр» — действующий член СРО
                   «Центральное Кредитное Объединение» и внесен в реестр под
                   регистрационным номером 54 от 7.07.11. СРО защищает финансовые
                   интересы пайщиков. Ведем отчетность по стандартам принятым
@@ -330,7 +330,7 @@
               </button>
             </div>
           </div>
-          <div class="pricing-plan is-active is-info">
+          <div class="pricing-plan is-link">
             <div class="plan-header">Накопительная</div>
             <div class="plan-price">
               <span class="plan-price-amount"
@@ -448,7 +448,7 @@
             </div>
           </div>
           <div class="column is-half">
-            <a href="" class="button is-info is-outlined">
+            <a href="#address" class="button is-info is-outlined">
               <span class="icon">
                 <i class="fas fa-map-marker-alt"></i>
               </span>
@@ -689,7 +689,7 @@
                 <div class="accordion-header js-accordion-header">Застрахованы ли сбережения?</div>
                 <div class="accordion-body js-accordion-body">
                   <div class="accordion-body__contents">
-                    Все сбережения КПК «МФЦ» застрахованы в Некоммерческой корпоративной организации «Межрегиональное потребительское
+                    Все сбережения КПК «ЛФЦ» застрахованы в Некоммерческой корпоративной организации «Межрегиональное потребительское
                     общество взаимного страхования»» (НКО «МОВС»), лицензия ВС №4349 в соответствии с Федеральным законом от 29.11.2007 №
                     286-ФЗ «О взаимном страховании» (ч. 2 ст. 1).
                   </div>
@@ -699,7 +699,7 @@
                 <div class="accordion-header js-accordion-header">Есть ли у вас лицензия?</div>
                 <div class="accordion-body js-accordion-body">
                   <div class="accordion-body__contents">
-                    Кредитный потребительский кооператив «МФЦ» является членом Ассоциации Саморегулируемая организация кредитных
+                    Кредитный потребительский кооператив «ЛФЦ» является членом Ассоциации Саморегулируемая организация кредитных
                     потребительских кооперативов «Центральное Кредитное Объединение» (регистрационный номер в Реестре 54 от 07.07.2011г.)
                   </div>
                 </div> <!-- end of accordion body -->
@@ -718,7 +718,7 @@
         </div>
       </div>
     </section>
-    <section class="section address">
+    <section class="section address" id="address">
       <div class="container">
         <h2 class="title is-3">Наши адреса</h2>
         <div class="map">
@@ -755,16 +755,78 @@
             <img src="img/LFC.png" alt="">
           </div>
           <div class="column is-four-fifths">
-            <p>Продукты КПК «Московский Финансовый Центр» доступны только для пайщиков кооператива на основе солидарного несения
+            <p>Продукты КПК «Ленинградский Финансовый Центр» доступны только для пайщиков кооператива на основе солидарного несения
             членами субсидиарной ответственности по его обязательствам в пределах не внесенной части дополнительного взноса каждого
             из членов.</p>
             <p>Входит в Систему страхования Сбережений ОВС «МОВС» (лицензия Банка России ВС №4349). Сберегательные программы КПК
-            «Московский Финансовый Центр» доступны только для пайщиков КПК «Московский Финансовый Центр». ОГРН 1117746423134 ИНН
+            «Ленинградский Финансовый Центр» доступны только для пайщиков КПК «Ленинградский Финансовый Центр». ОГРН 1117746423134 ИНН
             7725725310</p>
           </div>
         </div>
       </div>
     </footer>
+    <div class="modal" id="call-me">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <section class="modal-card-body">
+          <p class="title">Укажите Ваш телефон и наш сотрудник свяжется с Вами!</p>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ваш телефон" />
+            </div>
+            <div class="control">
+              <a class="button is-info" disabled>
+                Перезвоните мне!
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div class="modal" id="request">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <section class="modal-card-body">
+          <p class="title">Оставьте Ваш телефон и наш сотрудник свяжется с Вами для уточнения деталей</p>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ваш телефон" />
+            </div>
+            <div class="control">
+              <a class="button is-info" disabled>
+                Перезвоните мне!
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div class="modal" id="callback-success">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <section class="modal-card-body">
+          <div class="success-message">
+            <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
+              <circle cx="38" cy="38" r="36" />
+              <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7" />
+            </svg>
+            <p class="title">Мы получили Ваш запрос</p>
+            <span>Наш менеджер свяжется с вами в ближайшее время</span>
+          </div>
+        </section>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    
     <script type="text/javascript" src="lib/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
