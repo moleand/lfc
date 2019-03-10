@@ -78,22 +78,6 @@ const functions = {
     }
 };
 
-new Vue({
-    el: '#app',
-    data: {
-        region: '',
-        city: ''
-    },
-    mounted: function () {
-        axios.get(' http://api.sypexgeo.net/json/')
-            .then(res => {
-                console.log(res);
-                this.region = res.data.region.name_ru;
-                this.city = res.data.city.name_ru;
-            })
-    }
-});
-
 Vue.component('inputFieldSelect', {
     props: {
         label: String,
@@ -296,7 +280,6 @@ Vue.component('button-choose-program', {
         }
     }
 });
-
 new Vue({
     el: '#bank',
     data: {
@@ -359,7 +342,7 @@ new Vue({
     computed: {
         requestButtonAvailable() {
             if (this.inputField) {
-                if (this.inputField.replace(/\D+/g, '').length === 11) {
+                if (this.inputField.replace(/\D+/g, '').length >= 9) {
                     this.userPhone = this.inputField;
                     return true;
                 }
@@ -421,4 +404,86 @@ new Vue({
 });
 new Vue({
     el: '#savings'
+});
+const menu = new Vue({
+    el:'#menu'
+});
+new Vue({
+    el: '#navMenuApp',
+    data: {
+        region: '',
+        city: '',
+        menuActive: false
+    },
+    methods: {
+        burger(){
+            if(!this.menuActive){
+                this.$refs.burgerButton.classList.add(config.activeClass);
+                menu.$refs.mainMenu.classList.remove('is-hidden-touch');
+                menu.$refs.deepMenu.classList.add(config.activeClass);
+            } else {
+                this.$refs.burgerButton.classList.remove(config.activeClass);
+                menu.$refs.mainMenu.classList.add('is-hidden-touch');
+                menu.$refs.deepMenu.classList.remove(config.activeClass);
+            }
+            this.menuActive = !this.menuActive;
+        }
+    },
+    mounted: function () {
+        axios.get(' http://api.sypexgeo.net/json/')
+            .then(res => {
+                console.log(res);
+                this.region = res.data.region.name_ru;
+                this.city = res.data.city.name_ru;
+            })
+    }
+});
+new Vue({
+    el: '#appCarusel',
+    data: {
+        reviews: []
+    },
+    methods:{
+        downloadFile(file, name){
+            console.log(file);
+            var link = document.createElement("a");
+            let format = null;
+            if(file.endsWith('.jpg')){
+                format = '.jpg'
+            } else if(file.endsWith('.png')){
+                format = '.png'
+            } else if(file.endsWith('.jpeg')){
+                format = '.jpeg'
+            }
+            if(format === null) throw {message: 'Ошибка в формате файла'};
+            link.download = name + format;
+            link.href = config.hostUrl +'/' + file;
+            console.log(link.href);
+            link.click();
+        }
+    },
+    mounted: function(){
+        axios.get(config.hostUrl + '/api/review/all')
+            .then(res => {
+                this.reviews = res.data;
+                setTimeout(()=>{
+                    new Siema({
+                        selector: '.siema',
+                        duration: 200,
+                        easing: 'ease-out',
+                        perPage: 3,
+                        startIndex: 0,
+                        draggable: true,
+                        multipleDrag: true,
+                        threshold: 20,
+                        loop: false,
+                        rtl: false,
+                        onInit: () => {
+                        },
+                        onChange: () => {
+                        }
+                    });
+                }, 100);
+            })
+    }
 });
