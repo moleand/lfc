@@ -7813,6 +7813,54 @@ footer.footer {
   margin-top: -32px;
   font-size: 16px; }
 
+.credit h2.title {
+  margin-bottom: 48px; }
+
+.credit h3.title {
+  font-size: 24px;
+  margin-bottom: 8px; }
+
+.credit h2.title.is-3 {
+  margin-bottom: 24px; }
+
+.credit .card {
+  background: none; }
+
+.credit .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  padding-top: 0; }
+
+.credit .icon {
+  height: auto;
+  width: auto;
+  margin-bottom: 24px; }
+
+.credit .step {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; }
+  .credit .step .step-number {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3c80f9;
+    border: 1px solid #d0d7e8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-right: 18px; }
+  .credit .step .step-title {
+    font-size: 18px;
+    color: #092962; }
+  .credit .step .step-details {
+    font-size: 14px;
+    color: #6577a2; }
+
 @media screen and (min-width: 1472px) {
   .container {
     max-width: 1152px; } }
