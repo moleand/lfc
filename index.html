@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Ленинградский финансовый центр</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css"/>
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
+            rel="stylesheet"
     />
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar is-transparent">
-      <div class="container">
+</head>
+
+<body>
+<nav class="navbar is-transparent">
+    <div class="container">
         <div class="navbar-brand">
-          <a href="#" class="navbar-item">
-            <img src="img/LFC.png" alt="" />
-          </a>
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+            <a href="#" class="navbar-item">
+                <img src="img/LFC.png" alt=""/>
+            </a>
+            <a
+                    role="button"
+                    class="navbar-burger burger"
+                    aria-label="menu"
+                    aria-expanded="false"
+                    data-target="navbarBasicExample"
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
         <div class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-item region">
-              <span class="region-header">Ваш регион</span>
-              <div class="region-body">
+            <div class="navbar-start">
+                <div class="navbar-item region">
+                    <span class="region-header">Ваш регион</span>
+                    <div class="region-body">
                 <span class="icon">
                   <i class="fas fa-map-marker-alt"></i>
                 </span>
-                <span>Москва и Московская область</span>
-              </div>
+                        <span id="app">{{region}}</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="navbar-end">
-            <a href="" class="navbar-item">
+            <div class="navbar-end">
+                <a href="" class="navbar-item">
               <span class="icon">
                 <i class="fas fa-phone"></i>
               </span>
-              <span>8 (800) 555-93-84</span>
-            </a>
-            <div class="navbar-item">
-              <button class="button is-info">Заказать звонок</button>
+                    <span>8 (800) 555-93-84</span>
+                </a>
+                <div class="navbar-item">
+                    <button class="button is-info" onclick="functions.requestCall()">Заказать звонок</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </nav>
-    <nav class="navbar is-transparent">
-      <div class="container">
+    </div>
+</nav>
+<nav class="navbar is-transparent">
+    <div class="container">
         <div class="navbar-menu">
           <div class="navbar-start">
             <a href="index.html" class="navbar-item">Сбережения</a>
@@ -78,756 +79,748 @@
             <a href="" class="navbar-item">Контакты</a>
           </div>
         </div>
-      </div>
-    </nav>
-    <section class="hero is-link">
-      <div class="hero-body">
+    </div>
+</nav>
+<section class="hero is-link">
+    <div class="hero-body">
         <div class="container">
-          <div class="columns is-gapless">
-            <div
-              class="column is-two-fifths-desktop is-half-tablet is-full-mobile"
-            >
-              <span>Сбережения</span>
-              <h1 class="title">13,95%</h1>
-              <p class="subtitle">годовых</p>
-              <p>Акция действует до 10 марта!</p>
-              <button class="button is-info">Узнать подробности</button>
+            <div class="columns is-gapless">
+                <div
+                        class="column is-two-fifths-desktop is-half-tablet is-full-mobile"
+                >
+                    <span>Сбережения</span>
+                    <h1 class="title">13,95%</h1>
+                    <p class="subtitle">годовых</p>
+                    <p>Акция действует до 10 марта!</p>
+                    <button class="button is-info" onclick="functions.requestCall()">Узнать подробности</button>
+                </div>
+                <div class="column hero-image is-hidden-mobile"></div>
             </div>
-            <div class="column hero-image is-hidden-mobile"></div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section calculator" id="bank">
-      <div class="container">
+    </div>
+</section>
+<section class="section calculator" id="bank">
+    <div class="container">
         <div class="columns">
-          <div class="column is-two-thirds-desktop">
-            <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
-            <div class="calc-fields">
+            <div class="column is-two-thirds-desktop">
+                <h2 class="title">Рассчитайте Ваш потенциальный доход</h2>
+                <div class="calc-fields">
 
-              <input-field-text v-on:value-changed="savings = $event" label="Сумма сбережений"
-                                units="рублей" :max="10000000" :min="30000" :val="100000" :slider-mult="10000">
-              </input-field-text>
+                    <input-field-text v-on:value-changed="savings = $event" label="Сумма сбережений"
+                                      units="рублей" :max="10000000" :min="30000" :val="100000" :slider-mult="10000">
+                    </input-field-text>
 
-              <input-field-select v-on:value-changed="procentType = $event" label="Выплата процентов"
-                                  :options="['Ежемесячно', 'В конце срока с капитализацией']">
-              </input-field-select>
+                    <input-field-select v-on:value-changed="procentType = $event" label="Выплата процентов"
+                                        :options="['Ежемесячно', 'В конце срока с капитализацией']">
+                    </input-field-select>
 
-              <input-field-text v-on:value-changed="savingsPerMonth = $event" label="Сумма пополнения"
-                                units="рублей / месяц" :max="500000" :min="0" :val="0" :slider-mult="10000">
-              </input-field-text>
+                    <input-field-text v-on:value-changed="savingsPerMonth = $event" label="Сумма пополнения"
+                                      units="рублей / месяц" :max="500000" :min="0" :val="0" :slider-mult="10000">
+                    </input-field-text>
 
-              <input-field-text v-on:value-changed="period = $event" label="Срок сбережения"
-                                units="месяцев" :max="36" :min="3" :val="12" :slider-mult="1">
-              </input-field-text>
+                    <input-field-text v-on:value-changed="period = $event" label="Срок сбережения"
+                                      units="месяцев" :max="36" :min="3" :val="12" :slider-mult="1">
+                    </input-field-text>
+                </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="attention">
-                  <span>Ваш доход от вложений</span>
-                  <span class="number-attention">{{ income.toLocaleString() }} Р</span>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="attention">
+                            <span>Ваш доход от вложений</span>
+                            <span class="number-attention">{{ income.toLocaleString() }} Р</span>
+                        </div>
+                        <div class="attention">
+                            <span>Процентная ставка</span>
+                            <span class="number-attention">13,5%</span>
+                        </div>
+                        <div class="attention">
+                            <span>Вы получите</span>
+                            <span class="number-attention">{{ result.toLocaleString() }} Р</span>
+                        </div>
+                        <button class="button is-info">
+                            Отправить заявку
+                        </button>
+                    </div>
                 </div>
-                <div class="attention">
-                  <span>Процентная ставка</span>
-                  <span class="number-attention">13,5%</span>
-                </div>
-                <div class="attention">
-                  <span>Вы получите</span>
-                  <span class="number-attention">{{ result.toLocaleString() }} Р</span>
-                </div>
-                <button class="button is-info">
-                  Отправить заявку
-                </button>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section insurance" id="insurance">
-      <div class="container">
+    </div>
+</section>
+<section class="section insurance" id="insurance">
+    <div class="container">
         <h2 class="title is-3">Страхование</h2>
         <div class="columns is-multiline">
-          <div class="column is-half">
-            <div class="card">
-              <div class="card-content">
-                <div class="card-header">
-                  <figure class="image">
-                    <img src="img/shield.svg" alt="">
-                  </figure>
-                  <h3 class="title is-4">
-                    Надежность сбережений и высокий доход
-                  </h3>
+            <div class="column is-half">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <figure class="image">
+                                <img src="img/shield.svg" alt="">
+                            </figure>
+                            <h3 class="title is-4">
+                                Надежность сбережений и высокий доход
+                            </h3>
+                        </div>
+                        <p>
+                            Кооператив привлекает деньги населения в виде сбережений под
+                            высокий процент, и выдает займы населению обеспеченные залогом
+                            в виде недвижимости и автомобилей, снижая риски невозврата
+                            займов.
+                        </p>
+                    </div>
                 </div>
-                <p>
-                  Кооператив привлекает деньги населения в виде сбережений под
-                  высокий процент, и выдает займы населению обеспеченные залогом
-                  в виде недвижимости и автомобилей, снижая риски невозврата
-                  займов.
-                </p>
-              </div>
             </div>
-          </div>
-          <div class="column is-half">
-            <div class="card">
-              <div class="card-content">
-                <div class="card-header">
-                  <figure class="image">
-                    <img src="img/savings.svg" alt="">
-                  </figure>
-                  <h3 class="title is-4">Формируем резервы</h3>
+            <div class="column is-half">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <figure class="image">
+                                <img src="img/savings.svg" alt="">
+                            </figure>
+                            <h3 class="title is-4">Формируем резервы</h3>
+                        </div>
+                        <p>
+                            По указанию ЦБ РФ 3332-У формируем резервы на возможные потери
+                            по займам физических лиц из собственных средств кооператива. В
+                            кооперативе сформирован резервный фонд, который защищает
+                            сбережения пайщиков.
+                        </p>
+                    </div>
                 </div>
-                <p>
-                  По указанию ЦБ РФ 3332-У формируем резервы на возможные потери
-                  по займам физических лиц из собственных средств кооператива. В
-                  кооперативе сформирован резервный фонд, который защищает
-                  сбережения пайщиков.
-                </p>
-              </div>
             </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/insurance.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Сбережения пайщиков застрахованы
-                  </h3>
-                </div>
-                <p>
-                  Сбережения пайщиков застрахованы на всю сумму в
-                  «Межрегиональном обществе взаимного страхования». Каждому
-                  пайщику выдаётся именное свидетельство, по которому сбережения
-                  подлежат 100% возврату. По договору КПК «ЛФЦ» оформляет
-                  индивидуальный сертификат между страховой компанией и
-                  пайщиком. При этом, общая сумма страхования увеличивается на
-                  сумму привлеченных в КПК средств.
-                </p>
-                <a href="" class="details">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="img/insurance.png" alt=""/>
+                        <div class="card-header">
+                            <h3 class="title is-4 has-text-centered">
+                                Сбережения пайщиков застрахованы
+                            </h3>
+                        </div>
+                        <p>
+                            Сбережения пайщиков застрахованы на всю сумму в
+                            «Межрегиональном обществе взаимного страхования». Каждому
+                            пайщику выдаётся именное свидетельство, по которому сбережения
+                            подлежат 100% возврату. По договору КПК «ЛФЦ» оформляет
+                            индивидуальный сертификат между страховой компанией и
+                            пайщиком. При этом, общая сумма страхования увеличивается на
+                            сумму привлеченных в КПК средств.
+                        </p>
+                        <a href="" class="details">
                   <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>
-                  <span>Индивидуальный страховой сертификат</span>
-                </a>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/standarts.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Соблюдаем отраслевые стандарты
-                  </h3>
+                            <span>Индивидуальный страховой сертификат</span>
+                        </a>
+                        <a href="" class="button is-link is-outlined"
+                        >Перейти на сайт</a
+                        >
+                    </div>
                 </div>
-                <p>
-                  КПК «Ленинградский Финансовый Центр» — действующий член СРО
-                  «Центральное Кредитное Объединение» и внесен в реестр под
-                  регистрационным номером 54 от 7.07.11. СРО защищает финансовые
-                  интересы пайщиков. Ведем отчетность по стандартам принятым
-                  членами СРО (ЦКО) стандартами ЦБ РФ.
-                </p>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
-              </div>
             </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-content">
-                <img src="img/cbrf.png" alt="" />
-                <div class="card-header">
-                  <h3 class="title is-4 has-text-centered">
-                    Работаем под контролем ЦБ РФ
-                  </h3>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="img/standarts.png" alt=""/>
+                        <div class="card-header">
+                            <h3 class="title is-4 has-text-centered">
+                                Соблюдаем отраслевые стандарты
+                            </h3>
+                        </div>
+                        <p>
+                            КПК «Ленинградский Финансовый Центр» — действующий член СРО
+                            «Центральное Кредитное Объединение» и внесен в реестр под
+                            регистрационным номером 54 от 7.07.11. СРО защищает финансовые
+                            интересы пайщиков. Ведем отчетность по стандартам принятым
+                            членами СРО (ЦКО) стандартами ЦБ РФ.
+                        </p>
+                        <a href="" class="button is-link is-outlined"
+                        >Перейти на сайт</a
+                        >
+                    </div>
                 </div>
-                <p>
-                  Строго соблюдаем нормативы и постановление ЦБ РФ. Деятельность
-                  регулируется Федеральным законом от 18.07.2009 №190-ФЗ «О
-                  кредитной кооперации»
-                </p>
-                <a href="" class="details">
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="img/cbrf.png" alt=""/>
+                        <div class="card-header">
+                            <h3 class="title is-4 has-text-centered">
+                                Работаем под контролем ЦБ РФ
+                            </h3>
+                        </div>
+                        <p>
+                            Строго соблюдаем нормативы и постановление ЦБ РФ. Деятельность
+                            регулируется Федеральным законом от 18.07.2009 №190-ФЗ «О
+                            кредитной кооперации»
+                        </p>
+                        <a href="" class="details">
                   <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>
-                  <span>Индивидуальный страховой сертификат</span>
-                </a>
-                <a href="" class="button is-link is-outlined"
-                  >Перейти на сайт</a
-                >
-              </div>
+                            <span>Индивидуальный страховой сертификат</span>
+                        </a>
+                        <a href="" class="button is-link is-outlined"
+                        >Перейти на сайт</a
+                        >
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section savings" id="savings">
-      <div class="container">
+    </div>
+</section>
+<section class="section savings" id="savings">
+    <div class="container">
         <h2 class="title is-3">Сбережения</h2>
         <div class="pricing-table is-comparative">
-          <div class="pricing-plan is-features">
-            <div class="plan-header">Программы</div>
-            <div class="plan-price">
-              <span class="plan-price-amount">&nbsp;</span>
+            <div class="pricing-plan is-features">
+                <div class="plan-header">Программы</div>
+                <div class="plan-price">
+                    <span class="plan-price-amount">&nbsp;</span>
+                </div>
+                <div class="plan-items">
+                    <div class="plan-item">Срок</div>
+                    <div class="plan-item">от 30 000 Р</div>
+                    <div class="plan-item">от 500 000 Р</div>
+                    <div class="plan-item">от 1 000 000 Р</div>
+                    <div class="plan-item">Выплата процентов</div>
+                    <div class="plan-item">Пополнение</div>
+                    <div class="plan-item">Капитализация</div>
+                    <div class="plan-item">Частичное снятие</div>
+                    <div class="plan-item">Досрочное расторжение</div>
+                    <div class="plan-item">Особые условия</div>
+                </div>
+                <div class="plan-footer"></div>
             </div>
-            <div class="plan-items">
-              <div class="plan-item">Срок</div>
-              <div class="plan-item">от 30 000 Р</div>
-              <div class="plan-item">от 500 000 Р</div>
-              <div class="plan-item">от 1 000 000 Р</div>
-              <div class="plan-item">Выплата процентов</div>
-              <div class="plan-item">Пополнение</div>
-              <div class="plan-item">Капитализация</div>
-              <div class="plan-item">Частичное снятие</div>
-              <div class="plan-item">Досрочное расторжение</div>
-              <div class="plan-item">Особые условия</div>
-            </div>
-            <div class="plan-footer"></div>
-          </div>
-          <div class="pricing-plan is-link">
-            <div class="plan-header">Пенсионная</div>
-            <div class="plan-price">
+            <div class="pricing-plan is-link">
+                <div class="plan-header">Пенсионная</div>
+                <div class="plan-price">
               <span class="plan-price-amount"
-                ><span class="plan-price-currency">до</span>13,5%</span
+              ><span class="plan-price-currency">до</span>13,5%</span
               >/год
+                </div>
+                <div class="plan-items">
+                    <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
+                    <div class="plan-item" data-feature="от 30 000 Р">12,0%</div>
+                    <div class="plan-item" data-feature="от 500 000 Р">12,5%</div>
+                    <div class="plan-item" data-feature="от 1 000 000 Р">13,5%</div>
+                    <div class="plan-item" data-feature="Выплата процентов">
+                        ежемесячно/в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Пополнение">
+                        от 10 000 Р
+                    </div>
+                    <div class="plan-item" data-feature="Капитализация">
+                        в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Частичное снятие">
+                        не более 25%
+                    </div>
+                    <div class="plan-item" data-feature="Досрочное расторжение">
+                        Да, по ставке 0.1%
+                    </div>
+                    <div class="plan-item" data-feature="Особые условия">
+                        -
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <button-choose-program callback-text="Пенсионная"></button-choose-program>
+                </div>
             </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">12,0%</div>
-              <div class="plan-item" data-feature="от 500 000 Р">12,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                ежемесячно/в конце срока
-              </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 10 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                не более 25%
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                Да, по ставке 0.1%
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                -
-              </div>
-            </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">
-                Оставить заявку
-              </button>
-            </div>
-          </div>
-          <div class="pricing-plan is-link">
-            <div class="plan-header">Накопительная</div>
-            <div class="plan-price">
+            <div class="pricing-plan is-link">
+                <div class="plan-header">Накопительная</div>
+                <div class="plan-price">
               <span class="plan-price-amount"
-                ><span class="plan-price-currency">до</span>13,95%</span
+              ><span class="plan-price-currency">до</span>13,95%</span
               >/год
+                </div>
+                <div class="plan-items">
+                    <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
+                    <div class="plan-item" data-feature="от 30 000 Р">12,5%</div>
+                    <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
+                    <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
+                    <div class="plan-item" data-feature="Выплата процентов">
+                        ежемесячно/в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Пополнение">
+                        от 10 000 Р
+                    </div>
+                    <div class="plan-item" data-feature="Капитализация">
+                        в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Частичное снятие">
+                        -
+                    </div>
+                    <div class="plan-item" data-feature="Досрочное расторжение">
+                        Да, по ставке 0.1%
+                    </div>
+                    <div class="plan-item" data-feature="Особые условия">
+                        -
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <button-choose-program callback-text="Накопительная"></button-choose-program>
+                </div>
             </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">12,5%</div>
-              <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                ежемесячно/в конце срока
-              </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 10 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                -
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                Да, по ставке 0.1%
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                -
-              </div>
+            <div class="pricing-plan is-link">
+                <div class="plan-header">Инвестиционная</div>
+                <div class="plan-price">
+                    <span class="plan-price-amount">13,95%+</span>/год
+                </div>
+                <div class="plan-items">
+                    <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
+                    <div class="plan-item" data-feature="от 30 000 Р">-</div>
+                    <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
+                    <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
+                    <div class="plan-item" data-feature="Выплата процентов">
+                        в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Пополнение">
+                        от 500 000 Р
+                    </div>
+                    <div class="plan-item" data-feature="Капитализация">
+                        в конце срока
+                    </div>
+                    <div class="plan-item" data-feature="Частичное снятие">
+                        -
+                    </div>
+                    <div class="plan-item" data-feature="Досрочное расторжение">
+                        -
+                    </div>
+                    <div class="plan-item" data-feature="Особые условия">
+                        13,95% +
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <button-choose-program callback-text="Инвестиционная"></button-choose-program>
+                </div>
             </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">Оставить заявку</button>
-            </div>
-          </div>
-          <div class="pricing-plan is-link">
-            <div class="plan-header">Инвестиционная</div>
-            <div class="plan-price">
-              <span class="plan-price-amount">13,95%+</span>/год
-            </div>
-            <div class="plan-items">
-              <div class="plan-item" data-feature="Срок">3 - 36 месяцев</div>
-              <div class="plan-item" data-feature="от 30 000 Р">-</div>
-              <div class="plan-item" data-feature="от 500 000 Р">13,5%</div>
-              <div class="plan-item" data-feature="от 1 000 000 Р">13,95%</div>
-              <div class="plan-item" data-feature="Выплата процентов">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Пополнение">
-                от 500 000 Р
-              </div>
-              <div class="plan-item" data-feature="Капитализация">
-                в конце срока
-              </div>
-              <div class="plan-item" data-feature="Частичное снятие">
-                -
-              </div>
-              <div class="plan-item" data-feature="Досрочное расторжение">
-                -
-              </div>
-              <div class="plan-item" data-feature="Особые условия">
-                13,95% +
-              </div>
-            </div>
-            <div class="plan-footer">
-              <button class="button is-fullwidth">Оставить заявку</button>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section call-back">
-      <div class="container">
+    </div>
+</section>
+<section class="section call-back">
+    <div class="container">
         <h2 class="title">Поможем Вам подобрать программу</h2>
         <div class="columns is-multiline">
-          <div class="column is-half">
-            <div class="box">
-              <img src="img/manager.jpg" alt="" class="manager-photo" />
-              <div class="manager-info">
-                <p class="manager-call-to-action">
-                  Позвоните нашему менеджеру
-                </p>
-                <a href="" class="phone-number">8 (800) 555-93-84</a>
-              </div>
-            </div>
-          </div>
-          <div class="column is-half">
-            <div class="box">
-              <p class="manager-call-to-action">
-                Или оставьте свой телефон, мы Вам перезвоним!
-              </p>
-              <div class="field">
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Введите свой номер"
-                  />
+            <div class="column is-half">
+                <div class="box">
+                    <img src="img/manager.jpg" alt="" class="manager-photo"/>
+                    <div class="manager-info">
+                        <p class="manager-call-to-action">
+                            Позвоните нашему менеджеру
+                        </p>
+                        <a href="" class="phone-number">8 (800) 555-93-84</a>
+                    </div>
                 </div>
-                <div class="control">
-                  <a class="button is-info">
-                    Перезвоните мне!
-                  </a>
-                  <span>Перезвоним в течение 15 минут!</span>
+            </div>
+            <div class="column is-half" id="call-input">
+                <div class="box">
+                    <p class="manager-call-to-action">
+                        Или оставьте свой телефон, мы Вам перезвоним!
+                    </p>
+                    <div class="field">
+                        <div class="control">
+                            <input
+                                    class="input"
+                                    type="text"
+                                    placeholder="Введите свой номер"
+                                    ref="number1"
+                                    id="phone"
+                            />
+                        </div>
+                        <div class="control">
+                            <a class="button is-info" @click="callRequest" :disabled="!requestButtonAvailable">
+                                Перезвоните мне!
+                            </a>
+                            <span>Перезвоним в течение 15 минут!</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="column is-half">
-            <div class="box work-hours">
-              <p>Режим работы:</p>
-              <p>
-                Понедельник-Пятница с 10:00 до 20:00<br />
-                Суббота-Воскресенье с 10:00 до 18:00
-              </p>
+            <div class="column is-half">
+                <div class="box work-hours">
+                    <p>Режим работы:</p>
+                    <p>
+                        Понедельник-Пятница с 10:00 до 20:00<br/>
+                        Суббота-Воскресенье с 10:00 до 18:00
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="column is-half">
-            <a href="#address" class="button is-info is-outlined">
+            <div class="column is-half">
+                <a href="#address" class="button is-info is-outlined">
               <span class="icon">
                 <i class="fas fa-map-marker-alt"></i>
               </span>
-              <span>Наши адреса</span>
-            </a>
-          </div>
+                    <span>Наши адреса</span>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
-    <section class="section feedback">
-      <div class="container">
+    </div>
+</section>
+<section class="section feedback">
+    <div class="container">
         <h2 class="title is-3">Отзывы наших клиентов</h2>
         <div class="siema">
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
                 <span class="icon">
                   <i class="fas fa-comment-alt"></i>
                 </span>
-                <span class="author-name">Иванова А.А.</span>
-                <p class="feedback-content">
-                  Являюсь вкладчиком с апреля 2017. Накопительная программа
-                  Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                  выдали в подарок телевизор. Очень приятно...
-                </p>
-                <div class="open-original">
+                        <span class="author-name">Иванова А.А.</span>
+                        <p class="feedback-content">
+                            Являюсь вкладчиком с апреля 2017. Накопительная программа
+                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
+                            выдали в подарок телевизор. Очень приятно...
+                        </p>
+                        <div class="open-original">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                  <p>Открыть оригинал</p>
+                            <p>Открыть оригинал</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
                 <span class="icon">
                   <i class="fas fa-comment-alt"></i>
                 </span>
-                <span class="author-name">Иванова А.А.</span>
-                <p class="feedback-content">
-                  Являюсь вкладчиком с апреля 2017. Накопительная программа
-                  Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                  выдали в подарок телевизор. Очень приятно...
-                </p>
-                <div class="open-original">
+                        <span class="author-name">Иванова А.А.</span>
+                        <p class="feedback-content">
+                            Являюсь вкладчиком с апреля 2017. Накопительная программа
+                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
+                            выдали в подарок телевизор. Очень приятно...
+                        </p>
+                        <div class="open-original">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                  <p>Открыть оригинал</p>
+                            <p>Открыть оригинал</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
                 <span class="icon">
                   <i class="fas fa-comment-alt"></i>
                 </span>
-                <span class="author-name">Иванова А.А.</span>
-                <p class="feedback-content">
-                  Являюсь вкладчиком с апреля 2017. Накопительная программа
-                  Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                  выдали в подарок телевизор. Очень приятно...
-                </p>
-                <div class="open-original">
+                        <span class="author-name">Иванова А.А.</span>
+                        <p class="feedback-content">
+                            Являюсь вкладчиком с апреля 2017. Накопительная программа
+                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
+                            выдали в подарок телевизор. Очень приятно...
+                        </p>
+                        <div class="open-original">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                  <p>Открыть оригинал</p>
+                            <p>Открыть оригинал</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
                 <span class="icon">
                   <i class="fas fa-comment-alt"></i>
                 </span>
-                <span class="author-name">Иванова А.А.</span>
-                <p class="feedback-content">
-                  Являюсь вкладчиком с апреля 2017. Накопительная программа
-                  Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                  выдали в подарок телевизор. Очень приятно...
-                </p>
-                <div class="open-original">
+                        <span class="author-name">Иванова А.А.</span>
+                        <p class="feedback-content">
+                            Являюсь вкладчиком с апреля 2017. Накопительная программа
+                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
+                            выдали в подарок телевизор. Очень приятно...
+                        </p>
+                        <div class="open-original">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                  <p>Открыть оригинал</p>
+                            <p>Открыть оригинал</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section documents">
-      <div class="container">
+    </div>
+</section>
+<section class="section documents">
+    <div class="container">
         <h2 class="title is-3">Документы</h2>
         <div class="columns is-multiline">
-          <div class="column is-half-tablet">
-            <a class="box" target="_blank">
+            <div class="column is-half-tablet">
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Лист записи ЕГРЮЛ</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Лист записи ЕГРЮЛ</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Свидетельство ИНН</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Свидетельство ИНН</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Устав</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Устав</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Свидетельство участника страхования сбережений</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Свидетельство участника страхования сбережений</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Лицензия НКО МОВС</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Лицензия НКО МОВС</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Выписка из протокола НКО МОВС</span>
-            </a>
-          </div>
-          <div class="column is-half-tablet">
-            <a class="box" target="_blank">
+                    <span class="document-name">Выписка из протокола НКО МОВС</span>
+                </a>
+            </div>
+            <div class="column is-half-tablet">
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Список положений</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Список положений</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Федеральный закон №190-ФЗ</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Федеральный закон №190-ФЗ</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Базовый стандарт защиты прав</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Базовый стандарт защиты прав</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Базовый стандарт совершаемых операций</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Базовый стандарт совершаемых операций</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Программы сбережений</span>
-            </a>
-            <a class="box" target="_blank">
+                    <span class="document-name">Программы сбережений</span>
+                </a>
+                <a class="box" target="_blank">
               <span class="icon">
                 <i class="fas fa-file"></i>
               </span>
-              <span class="document-name">Свидетельство о членстве в СРО "ЦКО"</span>
-            </a>
-          </div>
+                    <span class="document-name">Свидетельство о членстве в СРО "ЦКО"</span>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
-    <section class="section faq">
-      <div class="container">
+    </div>
+</section>
+<section class="section faq">
+    <div class="container">
         <h2 class="title is-3">Популярные вопросы</h2>
         <div class="columns">
-          <div class="column is-two-thirds">
-            <div class="accordion js-accordion">
-              <div class="accordion__item js-accordion-item">
-                <div class="accordion-header js-accordion-header">Что такое КПК?</div>
-                <div class="accordion-body js-accordion-body">
-                  <div class="accordion-body__contents">
-                    Кредитный потребительский кооператив (КПК) – добровольное объединение физических или юридических лиц на основе членства
-                    и по территориальному, профессиональному или иному принципу в целях удовлетворения финансовых потребностей членов
-                    кредитного кооператива – пайщиков. Другими словами, указанные лица объединяются в кредитный кооператив по тому или иному
-                    признаку для взаимной финансовой помощи.
-                    <br>
-                    <br>
-                    Кредитный кооператив – некоммерческая организация. Его деятельность регулируется федеральным законом от 18 июля 2009
-                    года № 190-ФЗ «О кредитной кооперации».
-                    <br>
-                    <br>
-                    КПК действует по подобию кассы взаимопомощи. Он привлекает денежные средства пайщиков и размещает их путем
-                    предоставления займов членам кредитного кооператива. Полученная от заемщика прибыль направляется на оплату процентов
-                    сбережениям пайщиков.
-                    <br>
-                    <br>
-                    Кредитный кооператив обязан соблюдать определенные финансовые нормативы.
-                    <br>
-                    <br>
-                    С 4 августа 2011 года кооперативы обязаны состоять в саморегулируемых организациях (СРО). На базе СРО создаются
-                    компенсационные фонды, средства из которых в случае банкротства кооператива идут на покрытие издержек его пайщиков. Фонд
-                    формируется за счет платежей (взносов) членов саморегулируемой организации, части доходов от размещения средств
-                    компенсационного фонда и за счет иных не запрещенных законом источников.
-                  </div>
-                </div> <!-- end of accordion body -->
-              </div><!-- end of accordion item -->
-              <div class="accordion__item js-accordion-item">
-                <div class="accordion-header js-accordion-header">Ставка по сбережениям выше, чем по банковским вкладам, почему?</div>
-                <div class="accordion-body js-accordion-body">
-                  <div class="accordion-body__contents">
-                    Ставка по сбережениям в КПК «ЛФЦ» от 10,0% до 13,5% годовых. Ставка по банковским депозитам до 8,659% годовых согласно
-                    средней максимальной процентной ставки ТОП10 кредитных организаций, привлекающих наибольший объем депозитов ФЛ, которую
-                    публикует ЦБ РФ каждую декаду месяца (III декада марта 2018 - 6,659%).
-                  </div>
-                </div> <!-- end of accordion body -->
-              </div><!-- end of accordion item -->
-              <div class="accordion__item js-accordion-item">
-                <div class="accordion-header js-accordion-header">Почему КПК выплачивает высокие проценты по сбережениям?</div>
-                <div class="accordion-body js-accordion-body">
-                  <div class="accordion-body__contents">
-                    КПК &laquo;ЛФЦ&raquo; выплачивает высокие проценты по сбережениям за счет получения высокого дохода по выданным займам КПК.
-                  </div>
-                </div> <!-- end of accordion body -->
-              </div><!-- end of accordion item -->
-              <div class="accordion__item js-accordion-item">
-                <div class="accordion-header js-accordion-header">Застрахованы ли сбережения?</div>
-                <div class="accordion-body js-accordion-body">
-                  <div class="accordion-body__contents">
-                    Все сбережения КПК «ЛФЦ» застрахованы в Некоммерческой корпоративной организации «Межрегиональное потребительское
-                    общество взаимного страхования»» (НКО «МОВС»), лицензия ВС №4349 в соответствии с Федеральным законом от 29.11.2007 №
-                    286-ФЗ «О взаимном страховании» (ч. 2 ст. 1).
-                  </div>
-                </div> <!-- end of accordion body -->
-              </div><!-- end of accordion item -->
-              <div class="accordion__item js-accordion-item">
-                <div class="accordion-header js-accordion-header">Есть ли у вас лицензия?</div>
-                <div class="accordion-body js-accordion-body">
-                  <div class="accordion-body__contents">
-                    Кредитный потребительский кооператив «ЛФЦ» является членом Ассоциации Саморегулируемая организация кредитных
-                    потребительских кооперативов «Центральное Кредитное Объединение» (регистрационный номер в Реестре 54 от 07.07.2011г.)
-                  </div>
-                </div> <!-- end of accordion body -->
-              </div><!-- end of accordion item -->
+            <div class="column is-two-thirds">
+                <div class="accordion js-accordion">
+                    <div class="accordion__item js-accordion-item">
+                        <div class="accordion-header js-accordion-header">Что такое КПК?</div>
+                        <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                                Кредитный потребительский кооператив (КПК) – добровольное объединение физических или
+                                юридических лиц на основе членства
+                                и по территориальному, профессиональному или иному принципу в целях удовлетворения
+                                финансовых потребностей членов
+                                кредитного кооператива – пайщиков. Другими словами, указанные лица объединяются в
+                                кредитный кооператив по тому или иному
+                                признаку для взаимной финансовой помощи.
+                                <br>
+                                <br>
+                                Кредитный кооператив – некоммерческая организация. Его деятельность регулируется
+                                федеральным законом от 18 июля 2009
+                                года № 190-ФЗ «О кредитной кооперации».
+                                <br>
+                                <br>
+                                КПК действует по подобию кассы взаимопомощи. Он привлекает денежные средства пайщиков и
+                                размещает их путем
+                                предоставления займов членам кредитного кооператива. Полученная от заемщика прибыль
+                                направляется на оплату процентов
+                                сбережениям пайщиков.
+                                <br>
+                                <br>
+                                Кредитный кооператив обязан соблюдать определенные финансовые нормативы.
+                                <br>
+                                <br>
+                                С 4 августа 2011 года кооперативы обязаны состоять в саморегулируемых организациях
+                                (СРО). На базе СРО создаются
+                                компенсационные фонды, средства из которых в случае банкротства кооператива идут на
+                                покрытие издержек его пайщиков. Фонд
+                                формируется за счет платежей (взносов) членов саморегулируемой организации, части
+                                доходов от размещения средств
+                                компенсационного фонда и за счет иных не запрещенных законом источников.
+                            </div>
+                        </div> <!-- end of accordion body -->
+                    </div><!-- end of accordion item -->
+                    <div class="accordion__item js-accordion-item">
+                        <div class="accordion-header js-accordion-header">Ставка по сбережениям выше, чем по банковским
+                            вкладам, почему?
+                        </div>
+                        <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                                Ставка по сбережениям в КПК «ЛФЦ» от 10,0% до 13,5% годовых. Ставка по банковским
+                                депозитам до 8,659% годовых согласно
+                                средней максимальной процентной ставки ТОП10 кредитных организаций, привлекающих
+                                наибольший объем депозитов ФЛ, которую
+                                публикует ЦБ РФ каждую декаду месяца (III декада марта 2018 - 6,659%).
+                            </div>
+                        </div> <!-- end of accordion body -->
+                    </div><!-- end of accordion item -->
+                    <div class="accordion__item js-accordion-item">
+                        <div class="accordion-header js-accordion-header">Почему КПК выплачивает высокие проценты по
+                            сбережениям?
+                        </div>
+                        <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                                КПК &laquo;ЛФЦ&raquo; выплачивает высокие проценты по сбережениям за счет получения
+                                высокого дохода по выданным займам КПК.
+                            </div>
+                        </div> <!-- end of accordion body -->
+                    </div><!-- end of accordion item -->
+                    <div class="accordion__item js-accordion-item">
+                        <div class="accordion-header js-accordion-header">Застрахованы ли сбережения?</div>
+                        <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                                Все сбережения КПК «ЛФЦ» застрахованы в Некоммерческой корпоративной организации
+                                «Межрегиональное потребительское
+                                общество взаимного страхования»» (НКО «МОВС»), лицензия ВС №4349 в соответствии с
+                                Федеральным законом от 29.11.2007 №
+                                286-ФЗ «О взаимном страховании» (ч. 2 ст. 1).
+                            </div>
+                        </div> <!-- end of accordion body -->
+                    </div><!-- end of accordion item -->
+                    <div class="accordion__item js-accordion-item">
+                        <div class="accordion-header js-accordion-header">Есть ли у вас лицензия?</div>
+                        <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                                Кредитный потребительский кооператив «ЛФЦ» является членом Ассоциации Саморегулируемая
+                                организация кредитных
+                                потребительских кооперативов «Центральное Кредитное Объединение» (регистрационный номер
+                                в Реестре 54 от 07.07.2011г.)
+                            </div>
+                        </div> <!-- end of accordion body -->
+                    </div><!-- end of accordion item -->
+                </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="card questions-contacts">
-              <div class="card-content">
-                <p>Остались вопросы? Звоните!</p>
-                <a href="" class="phone">8 (800) 555-93-84</a>
-                <span>Звонок по России бесплатный</span>
-              </div>
+            <div class="column">
+                <div class="card questions-contacts">
+                    <div class="card-content">
+                        <p>Остались вопросы? Звоните!</p>
+                        <a href="" class="phone">8 (800) 555-93-84</a>
+                        <span>Звонок по России бесплатный</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section address" id="address">
-      <div class="container">
+    </div>
+</section>
+<section class="section address" id="address">
+    <div class="container">
         <h2 class="title is-3">Наши адреса</h2>
         <div class="map">
-          <script type="text/javascript" charset="utf-8" async
-            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af56eb54c5fdaf669f5ac5f3dd449cee175635fe065a31fa6cd3b80896cc512fa&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af56eb54c5fdaf669f5ac5f3dd449cee175635fe065a31fa6cd3b80896cc512fa&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
         <div class="card card-address">
-          <div class="card-content">
-            <div class="address-block">
-              <span>Адрес отделения</span>
-              <p>Москва, 1-я Тверская-Ямская улица, 24</p>
+            <div class="card-content">
+                <div class="address-block">
+                    <span>Адрес отделения</span>
+                    <p>Москва, 1-я Тверская-Ямская улица, 24</p>
+                </div>
+                <div class="address-block">
+                    <span>Телефон</span>
+                    <a>8 (800) 555-93-84</a>
+                </div>
+                <div class="address-block">
+                    <span>Электронная почта</span>
+                    <a>info@lfc.ru</a>
+                </div>
+                <div class="address-block">
+                    <span>Режим работы</span>
+                    <p>Понедельник-Пятница с 10:00 до 20:00<br/>
+                        Суббота-Воскресенье с 10:00 до 18:00</p>
+                </div>
             </div>
-            <div class="address-block">
-              <span>Телефон</span>
-              <a>8 (800) 555-93-84</a>
-            </div>
-            <div class="address-block">
-              <span>Электронная почта</span>
-              <a>info@lfc.ru</a>
-            </div>
-            <div class="address-block">
-              <span>Режим работы</span>
-              <p>Понедельник-Пятница с 10:00 до 20:00<br />
-              Суббота-Воскресенье с 10:00 до 18:00</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <footer class="footer">
-      <div class="container">
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
         <div class="columns">
-          <div class="column">
-            <img src="img/LFC.png" alt="">
-          </div>
-          <div class="column is-four-fifths">
-            <p>Продукты КПК «Ленинградский Финансовый Центр» доступны только для пайщиков кооператива на основе солидарного несения
-            членами субсидиарной ответственности по его обязательствам в пределах не внесенной части дополнительного взноса каждого
-            из членов.</p>
-            <p>Входит в Систему страхования Сбережений ОВС «МОВС» (лицензия Банка России ВС №4349). Сберегательные программы КПК
-            «Ленинградский Финансовый Центр» доступны только для пайщиков КПК «Ленинградский Финансовый Центр». ОГРН 1117746423134 ИНН
-            7725725310</p>
-          </div>
+            <div class="column">
+                <img src="img/LFC.png" alt="">
+            </div>
+            <div class="column is-four-fifths">
+                <p>Продукты КПК «Ленинградский Финансовый Центр» доступны только для пайщиков кооператива на основе
+                    солидарного несения
+                    членами субсидиарной ответственности по его обязательствам в пределах не внесенной части
+                    дополнительного взноса каждого
+                    из членов.</p>
+                <p>Входит в Систему страхования Сбережений ОВС «МОВС» (лицензия Банка России ВС №4349). Сберегательные
+                    программы КПК
+                    «Ленинградский Финансовый Центр» доступны только для пайщиков КПК «Ленинградский Финансовый Центр».
+                    ОГРН 1117746423134 ИНН
+                    7725725310</p>
+            </div>
         </div>
-      </div>
-    </footer>
-    <div class="modal" id="call-me">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <section class="modal-card-body">
-          <p class="title">Укажите Ваш телефон и наш сотрудник свяжется с Вами!</p>
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" placeholder="Ваше имя" />
-            </div>
-            <div class="control">
-              <input class="input" type="text" placeholder="Ваш телефон" />
-            </div>
-            <div class="control">
-              <a class="button is-info" disabled>
-                Перезвоните мне!
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    <div class="modal" id="request">
-      <div class="modal-background"></div>
-      <div class="modal-card">
+</footer>
+
+<div id="modal">
+    <modal :init-title="modalTitles[1]"></modal>
+</div>
+
+<div class="modal" id="callback-success">
+    <div class="modal-background" @click="closeModal"></div>
+    <div class="modal-card">
         <section class="modal-card-body">
-          <p class="title">Оставьте Ваш телефон и наш сотрудник свяжется с Вами для уточнения деталей</p>
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" placeholder="Ваше имя" />
+            <div class="success-message">
+                <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
+                    <circle cx="38" cy="38" r="36"/>
+                    <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7"/>
+                </svg>
+                <p class="title">Мы получили Ваш запрос</p>
+                <span>Наш менеджер свяжется с вами в ближайшее время</span>
             </div>
-            <div class="control">
-              <input class="input" type="text" placeholder="Ваш телефон" />
-            </div>
-            <div class="control">
-              <a class="button is-info" disabled>
-                Перезвоните мне!
-              </a>
-            </div>
-          </div>
         </section>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    <div class="modal" id="callback-success">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <section class="modal-card-body">
-          <div class="success-message">
-            <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
-              <circle cx="38" cy="38" r="36" />
-              <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
-                stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7" />
-            </svg>
-            <p class="title">Мы получили Ваш запрос</p>
-            <span>Наш менеджер свяжется с вами в ближайшее время</span>
-          </div>
-        </section>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-    <script type="text/javascript" src="lib/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
+    <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="lib/main.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#phone').mask('+7 (999) 999-99-99', {autoclear: false});
+    });
+</script>
+<script>
     var accordion = (function () {
 
         var $accordion = $('.js-accordion');
@@ -836,58 +829,58 @@
 
         // default settings
         var settings = {
-          // animation speed
-          speed: 400,
+            // animation speed
+            speed: 400,
 
-          // close all other accordion items if true
-          oneOpen: false
+            // close all other accordion items if true
+            oneOpen: false
         };
 
         return {
-          // pass configurable object literal
-          init: function ($settings) {
-            $accordion_header.on('click', function () {
-              accordion.toggle($(this));
-            });
+            // pass configurable object literal
+            init: function ($settings) {
+                $accordion_header.on('click', function () {
+                    accordion.toggle($(this));
+                });
 
-            $.extend(settings, $settings);
+                $.extend(settings, $settings);
 
-            // ensure only one accordion is active if oneOpen is true
-            if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-              $('.js-accordion-item.active:not(:first)').removeClass('active');
+                // ensure only one accordion is active if oneOpen is true
+                if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+                    $('.js-accordion-item.active:not(:first)').removeClass('active');
+                }
+
+                // reveal the active accordion bodies
+                $('.js-accordion-item.active').find('> .js-accordion-body').show();
+            },
+            toggle: function ($this) {
+
+                if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+                    $this.closest('.js-accordion')
+                        .find('> .js-accordion-item')
+                        .removeClass('active')
+                        .find('.js-accordion-body')
+                        .slideUp()
+                }
+
+                // show/hide the clicked accordion item
+                $this.closest('.js-accordion-item').toggleClass('active');
+                $this.next().stop().slideToggle(settings.speed);
             }
-
-            // reveal the active accordion bodies
-            $('.js-accordion-item.active').find('> .js-accordion-body').show();
-          },
-          toggle: function ($this) {
-
-            if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-              $this.closest('.js-accordion')
-                .find('> .js-accordion-item')
-                .removeClass('active')
-                .find('.js-accordion-body')
-                .slideUp()
-            }
-
-            // show/hide the clicked accordion item
-            $this.closest('.js-accordion-item').toggleClass('active');
-            $this.next().stop().slideToggle(settings.speed);
-          }
         }
-      })();
+    })();
 
-      $(document).ready(function () {
-        accordion.init({ speed: 300, oneOpen: true });
-      });
-    </script>
-    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
-    <script
-      type="text/javascript"
-      src="node_modules/siema/dist/siema.min.js"
-    ></script>
-    <script>
-      new Siema({
+    $(document).ready(function () {
+        accordion.init({speed: 300, oneOpen: true});
+    });
+</script>
+<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+<script
+        type="text/javascript"
+        src="node_modules/siema/dist/siema.min.js"
+></script>
+<script>
+    new Siema({
         selector: '.siema',
         duration: 200,
         easing: 'ease-out',
@@ -898,9 +891,11 @@
         threshold: 20,
         loop: false,
         rtl: false,
-        onInit: () => {},
-        onChange: () => {}
-      });
-    </script>
-  </body>
+        onInit: () => {
+        },
+        onChange: () => {
+        }
+    });
+</script>
+</body>
 </html>
