@@ -1,91 +1,98 @@
 'use strict';
 const config = {
-  hostUrl: 'http://localhost',
-  modalClass: 'modal',
-  activeClass: 'is-active',
-  modalTitle: 'Укажите Ваш телефон и наш сотрудник свяжется с Вами!'
+    hostUrl: 'http://localhost',
+    modalClass: 'modal',
+    activeClass: 'is-active',
+    modalTitle: 'Укажите Ваш телефон и наш сотрудник свяжется с Вами!'
 };
 
 const modalTitles = [
-  'Укажите Ваш телефон и наш сотрудник свяжется с Вами!',
-  'Оставьте Ваш телефон и наш сотрудник свяжется с Вами для уточнения деталей'
+    'Укажите Ваш телефон и наш сотрудник свяжется с Вами!',
+    'Оставьте Ваш телефон и наш сотрудник свяжется с Вами для уточнения деталей'
 ];
 
 const programTypes = {
-  pens: 'Пенсионная',
-  nakop: 'Накопительная',
-  invest: 'Инвестиционная'
+    pens: 'Пенсионная',
+    nakop: 'Накопительная',
+    invest: 'Инвестиционная'
 };
 
 let user = {
-  name: null,
-  nubmer: null,
-  email: null,
-  editionInfo: null
+    name: null,
+    nubmer: null,
+    email: null,
+    editionInfo: null
 };
 
 const functions = {
-  modalSuccessActivity: function(operType) {
-    let modal = document.getElementById('callback-success');
-    if (arguments.length === 0) {
-      let consistClass = modal.classList.contains(config.activeClass);
-      if (consistClass) {
-        modal.classList.remove(config.activeClass);
-      } else {
-        modal.classList.add(config.activeClass);
-      }
-    } else {
-      switch (operType) {
-        case 'open': {
-          if (!modal.classList.contains(config.activeClass))
-            modal.classList.add(config.activeClass);
-          break;
+    modalSuccessActivity: function (operType) {
+        let modal = document.getElementById('callback-success');
+        if (arguments.length === 0) {
+            let consistClass = modal.classList.contains(config.activeClass);
+            if (consistClass) {
+                modal.classList.remove(config.activeClass);
+            } else {
+                modal.classList.add(config.activeClass);
+            }
+        } else {
+            switch (operType) {
+                case 'open': {
+                    if (!modal.classList.contains(config.activeClass))
+                        modal.classList.add(config.activeClass);
+                    break;
+                }
+                case 'close': {
+                    modal.classList.remove(config.activeClass);
+                    break;
+                }
+            }
         }
-        case 'close': {
-          modal.classList.remove(config.activeClass);
-          break;
+    },
+    modalActivity: function (operType) {
+        let modal = document.getElementById('call-me');
+        if (arguments.length === 0) {
+            let consistClass = modal.classList.contains(config.activeClass);
+            if (consistClass) {
+                modal.classList.remove(config.activeClass);
+            } else {
+                modal.classList.add(config.activeClass);
+            }
+        } else {
+            switch (operType) {
+                case 'open': {
+                    if (!modal.classList.contains(config.activeClass))
+                        modal.classList.add(config.activeClass);
+                    break;
+                }
+                case 'close': {
+                    modal.classList.remove(config.activeClass);
+                    break;
+                }
+            }
         }
-      }
+    },
+    chooseBankParam: function (userInfo) {
+        user.editionInfo = userInfo;
+        config.modalTitle = modalTitles[1];
+        let updateEvent = new Event('modal-update-title');
+        document.getElementById('call-me').dispatchEvent(updateEvent);
+        this.modalActivity('open');
+    },
+    requestCall: function () {
+        config.modalTitle = modalTitles[0];
+        user.editionInfo = null;
+        let updateEvent = new Event('modal-update-title');
+        document.getElementById('call-me').dispatchEvent(updateEvent);
+        this.modalActivity('open');
     }
-  },
-  modalActivity: function(operType) {
-    let modal = document.getElementById('call-me');
-    if (arguments.length === 0) {
-      let consistClass = modal.classList.contains(config.activeClass);
-      if (consistClass) {
-        modal.classList.remove(config.activeClass);
-      } else {
-        modal.classList.add(config.activeClass);
-      }
-    } else {
-      switch (operType) {
-        case 'open': {
-          if (!modal.classList.contains(config.activeClass))
-            modal.classList.add(config.activeClass);
-          break;
-        }
-        case 'close': {
-          modal.classList.remove(config.activeClass);
-          break;
-        }
-      }
-    }
-  },
-  requestCall: function() {
-    config.modalTitle = modalTitles[0];
-    user.editionInfo = null;
-    let updateEvent = new Event('modal-update-title');
-    document.getElementById('call-me').dispatchEvent(updateEvent);
-    this.modalActivity('open');
-  }
 };
 
 Vue.component('inputFieldSelect', {
-  props: {
-    label: String,
-    options: Array
-  },
-  template: `
+    props: {
+        label: String,
+        options: Array
+    },
+    template: `
     <div class="field">
                 <label class="label">{{label}}</label>
                 <div class="control">
@@ -99,20 +106,20 @@ Vue.component('inputFieldSelect', {
                 </div>
               </div>
     `,
-  mounted: function() {
-    this.$refs.selector.value = this.options[0];
-  }
+    mounted: function () {
+        this.$refs.selector.value = this.options[0];
+    }
 });
 Vue.component('inputFieldText', {
-  props: {
-    label: String,
-    units: String,
-    max: Number,
-    min: Number,
-    val: Number,
-    sliderMult: Number
-  },
-  template: `
+    props: {
+        label: String,
+        units: String,
+        max: Number,
+        min: Number,
+        val: Number,
+        sliderMult: Number
+    },
+    template: `
     <div class="field">
                 <label class="label">{{label}}</label>
                 <label class="label" style="color:red" v-if="errorMessage">{{errorMessageText}}</label>
@@ -141,46 +148,46 @@ Vue.component('inputFieldText', {
                 </p>
               </div>
     `,
-  data: function() {
-    return {
-      errorMessage: false,
-      errorMessageText: `Значение должно находиться в пределах между ${this.min.toLocaleString()} и ${this.max.toLocaleString()} ${
-        this.units
-      }`,
-      value: this.val
-    };
-  },
-  watch: {
-    value: function(newValue) {
-      this.$emit('value-changed', newValue);
-    }
-  },
-  methods: {
-    input(event) {
-      let number = event.target.value.replace(/[^0-9]/g, '');
-      number = +number;
-      if (number < this.min || number > this.max) {
-        this.errorMessage = true;
-      } else {
-        this.errorMessage = false;
-      }
-      this.value = number;
-      event.target.value = number.toLocaleString();
+    data: function () {
+        return {
+            errorMessage: false,
+            errorMessageText: `Значение должно находиться в пределах между ${this.min.toLocaleString()} и ${this.max.toLocaleString()} ${
+                this.units
+                }`,
+            value: this.val
+        };
     },
-    inputSlider(event) {
-      this.value = event.target.value * this.sliderMult;
-      this.$refs.numInputField.value = this.value.toLocaleString();
+    watch: {
+        value: function (newValue) {
+            this.$emit('value-changed', newValue);
+        }
+    },
+    methods: {
+        input(event) {
+            let number = event.target.value.replace(/[^0-9]/g, '');
+            number = +number;
+            if (number < this.min || number > this.max) {
+                this.errorMessage = true;
+            } else {
+                this.errorMessage = false;
+            }
+            this.value = number;
+            event.target.value = number.toLocaleString();
+        },
+        inputSlider(event) {
+            this.value = event.target.value * this.sliderMult;
+            this.$refs.numInputField.value = this.value.toLocaleString();
+        }
+    },
+    mounted: function () {
+        this.$refs.numInputField.value = this.value;
     }
-  },
-  mounted: function() {
-    this.$refs.numInputField.value = this.value;
-  }
 });
 Vue.component('modal', {
-  props: {
-    initTitle: String
-  },
-  template: `
+    props: {
+        initTitle: String
+    },
+    template: `
    <div class="modal" id="call-me">
       <div class="modal-background"  @click="closeModal"></div>
       <div class="modal-card">
@@ -204,176 +211,200 @@ Vue.component('modal', {
       </div>
       <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
     </div>`,
-  data: function() {
-    return {
-      inputFieldNumber: null,
-      userPhone: null,
-      userName: null,
-      title: this.initTitle
-    };
-  },
-  computed: {
-    submitDisabled() {
-      if (this.inputFieldNumber) {
-        if (
-          this.inputFieldNumber.replace(/\D+/g, '').length === 11 &&
-          this.userName.length > 1
-        ) {
-          this.userPhone = this.inputFieldNumber;
-          return false;
+    data: function () {
+        return {
+            inputFieldNumber: null,
+            userPhone: null,
+            userName: null,
+            title: this.initTitle
+        };
+    },
+    computed: {
+        submitDisabled() {
+            if (this.inputFieldNumber) {
+                if (
+                    this.inputFieldNumber.replace(/\D+/g, '').length === 11 &&
+                    this.userName.length > 1
+                ) {
+                    this.userPhone = this.inputFieldNumber;
+                    return false;
+                }
+            }
+            return true;
         }
-      }
-      return true;
-    }
-  },
-  methods: {
-    makeOrder() {
-      let body = {
-        html: `
-                Контакт:
-                Имя: ${this.userName}
-                Телефон: ${this.userPhone}
+    },
+    methods: {
+        makeOrder() {
+            let body = {
+                html: `
+                <div><h3>Контакт:</h3>
+                <h4>Имя: <span style="font-weight: normal">${this.userName} </span></h4>
+                <h4>Телефон: <span style="font-weight: normal">${this.userPhone}</span></h4>
+                </div>
                     ${
-                      user.editionInfo
-                        ? 'Выбранная программа - ' + user.editionInfo
+                    user.editionInfo
+                        ? user.editionInfo
                         : ''
                     }
              `
-      };
-      axios
-        .post(config.hostUrl + '/api/order/program', body)
-        .then(() => {
-          functions.modalActivity('close');
-          functions.modalSuccessActivity('open');
+            };
+            axios
+                .post(config.hostUrl + '/api/order/program', body)
+                .then(() => {
+                    functions.modalActivity('close');
+                    functions.modalSuccessActivity('open');
 
-          setTimeout(() => {
-            functions.modalSuccessActivity('close');
-          }, 3000);
-        })
-        .catch(err => {});
+                    setTimeout(() => {
+                        functions.modalSuccessActivity('close');
+                    }, 3000);
+                })
+                .catch(err => {
+                });
+        },
+        closeModal() {
+            functions.modalActivity('close');
+        },
+        controlInput(event) {
+            $('#userPhone').mask('+7 (999) 999-99-99', {autoclear: false});
+            event.target.value = event.target.value.replace(/[^ A-zА-яё]/g, '');
+            this.userName = event.target.value;
+        }
     },
-    closeModal() {
-      functions.modalActivity('close');
-    },
-    controlInput(event) {
-      $('#userPhone').mask('+7 (999) 999-99-99', { autoclear: false });
-      event.target.value = event.target.value.replace(/[^ A-zА-яё]/g, '');
-      this.userName = event.target.value;
+    mounted: function () {
+        let contex = this;
+        this.$el.addEventListener('modal-update-title', function () {
+            contex.title = config.modalTitle;
+        });
+        this.inputFieldNumber = this.$refs.phone.value;
+        let context = this;
+        setInterval(() => {
+            context.inputFieldNumber = this.$refs.phone.value;
+        }, 500);
     }
-  },
-  mounted: function() {
-    let contex = this;
-    this.$el.addEventListener('modal-update-title', function() {
-      contex.title = config.modalTitle;
-    });
-    this.inputFieldNumber = this.$refs.phone.value;
-    let context = this;
-    setInterval(() => {
-      context.inputFieldNumber = this.$refs.phone.value;
-    }, 500);
-  }
 });
 Vue.component('button-choose-program', {
-  props: {
-    callbackText: String
-  },
-  template: `
+    props: {
+        callbackText: String
+    },
+    template: `
      <button class="button is-fullwidth" @click="requestCallback">Оставить заявку</button>
     `,
-  methods: {
-    requestCallback() {
-      user.editionInfo = this.callbackText;
-      config.modalTitle = modalTitles[1];
-      let updateEvent = new Event('modal-update-title');
-      document.getElementById('call-me').dispatchEvent(updateEvent);
-      functions.modalActivity('open');
+    methods: {
+        requestCallback() {
+            user.editionInfo = `<div> <h3>Пользователь определился с программой вклада</h3> <h4>Выбранная программа -  <span style="font-weight: normal">${this.callbackText}</span> </h4></div>`;
+            config.modalTitle = modalTitles[1];
+            let updateEvent = new Event('modal-update-title');
+            document.getElementById('call-me').dispatchEvent(updateEvent);
+            functions.modalActivity('open');
+        }
     }
-  }
 });
 new Vue({
-  el: '#bank',
-  data: {
-    savings: 100000,
-    savingsPerMonth: 0,
-    period: 12,
-    procentType: 'Ежемесячно'
-  },
-  computed: {
-    result: function() {
-      let result = 0;
-      switch (this.procentType) {
-        case 'Ежемесячно': {
-          if (this.savingsPerMonth === 0) {
-            result = 0;
-            result = (
-              +this.savings *
-              (1 + (0.1395 * +this.period) / 12)
-            ).toFixed(0);
-            this.income = (result - this.savings).toFixed(0);
-          } else {
-          }
-          break;
-        }
-        case 'В конце срока с капитализацией': {
-          if (this.savingsPerMonth === 0) {
-            result = 0;
-            result = (
-              +this.savings * Math.pow(1 + 0.1395 / 12, +this.period)
-            ).toFixed(0);
-            this.income = (result - this.savings).toFixed(0);
-          } else {
-            let percent = 0.1395;
-            let savings = +this.savings;
-            for (let i = 0; i < this.period; i++) {
-              let addition = this.savingsPerMonth;
-              if (i === 0) {
-                result += savings * (1 + percent / 12);
-              } else {
-                savings = result + addition;
-                result += (savings * percent) / 12;
-              }
-            }
-          }
-          break;
-        }
-      }
-      result = parseInt(result).toFixed(0);
-      return +result;
+    el: '#bank',
+    data: {
+        savings: 100000,
+        savingsPerMonth: 0,
+        period: 12,
+        procentType: 'Ежемесячно'
     },
-    income: function() {
-      return (
-        this.result - this.savings - this.savingsPerMonth * (this.period - 1)
-      );
+    computed: {
+
+        result: function () {
+            let result = 0;
+            switch (this.procentType) {
+                case 'Ежемесячно': {
+                    if (this.savingsPerMonth === 0) {
+                        result = 0;
+                        result = (+this.savings * (1 + 0.1395 * +this.period / 12)).toFixed(0);
+                        this.income = (result - this.savings).toFixed(0);
+                    } else {
+                        let percent = 0.1395;
+                        let savings = +this.savings;
+                        for (let i = 0; i < this.period; i++) {
+                            let addition = this.savingsPerMonth;
+                            if (i === 0) {
+                                result += savings * (1 + percent / 12);
+                            } else {
+                                savings += addition;
+                                result += savings * percent / 12 + addition;
+                            }
+                        }
+                    }
+                    break;
+                }
+                case 'В конце срока с капитализацией': {
+                    if (this.savingsPerMonth === 0) {
+                        result = 0;
+                        result = (+this.savings * Math.pow((1 + 0.1395 / 12), +this.period)).toFixed(0);
+                        this.income = (result - this.savings).toFixed(0);
+                    } else {
+                        let savings = this.savings;
+                        let percent = 0.1395;
+                        let period = this.period;
+                        for (let i = 0; i < period; i++) {
+                            let addition = this.savingsPerMonth;
+
+                            if (i === 0) {
+                                result += savings * (1 + percent / 12) + addition;
+                            } else {
+                                savings = result;
+                                result += (savings * percent) / 12 + addition;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            result = parseInt(result).toFixed(0);
+            return +result;
+        },
+        income: function () {
+            return this.result - this.savings - this.savingsPerMonth * (this.period - 1);
+        }
+    },
+    methods: {
+        chooseProgram() {
+            let userInfo = `
+<div> 
+<h3>Информация о заказе:</h3>
+                    <h4>Сумма сбережений: <span style="font-weight: normal">${this.savings}</span></h4>                    
+                    <h4>Сумма пополнения: <span style="font-weight: normal">${this.savingsPerMonth}</span></h4>                    
+                    <h4>Выплата процентов: <span style="font-weight: normal">${this.procentType}</span></h4>                    
+                    <h4>Срок сбрежения: <span style="font-weight: normal">${this.period}</span></h4> 
+                    <h4>Итог: <span style="font-weight:normal">${this.result}</span></h4>
+                    <h4>Выгода клиента: <span style="font-weight: normal">${this.income}</span></h4>                    
+                    </div>
+                `;
+            functions.chooseBankParam(userInfo);
+        }
     }
-  },
-  methods: {}
 });
 new Vue({
-  el: '#call-input',
-  data: {
-    userPhone: '',
-    inputField: null,
-    userName: null
-  },
-  computed: {
-    requestButtonAvailable() {
-      if (this.inputField) {
-        if (this.inputField.replace(/\D+/g, '').length >= 9) {
-          this.userPhone = this.inputField;
-          return true;
+    el: '#call-input',
+    data: {
+        userPhone: '',
+        inputField: null,
+        userName: null
+    },
+    computed: {
+        requestButtonAvailable() {
+            if (this.inputField) {
+                if (this.inputField.replace(/\D+/g, '').length >= 9) {
+                    this.userPhone = this.inputField;
+                    return true;
+                }
+            }
+            return false;
         }
-      }
-      return false;
-    }
-  },
-  methods: {
-    callRequest() {
-      let body = {
-        user: {
-          name: this.userName,
-          phone: this.userPhone
-        },
-        html: `<div>
+    },
+    methods: {
+        callRequest() {
+            let body = {
+                user: {
+                    name: this.userName,
+                    phone: this.userPhone
+                },
+                html: `<div>
                         <h3>Контактные данные</h3>
                         <h4>
                             Имя:  <span style="font-weight:normal">
@@ -386,116 +417,118 @@ new Vue({
                                     </span>
                         </h4>
                     </div>`
-      };
-      axios
-        .post(config.hostUrl + '/api/order/phone', body)
-        .then(res => {
-          functions.modalSuccessActivity('open');
-          setTimeout(() => {
+            };
+            axios
+                .post(config.hostUrl + '/api/order/phone', body)
+                .then(res => {
+                    functions.modalSuccessActivity('open');
+                    setTimeout(() => {
+                        functions.modalSuccessActivity('close');
+                    }, 5000);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+    },
+    mounted: function () {
+        let context = this;
+        setInterval(() => {
+            context.inputField = context.$refs.number1.value;
+        }, 500);
+    }
+});
+new Vue({
+    el: '#callback-success',
+    methods: {
+        closeModal() {
             functions.modalSuccessActivity('close');
-          }, 5000);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+        }
     }
-  },
-  mounted: function() {
-    let context = this;
-    setInterval(() => {
-      context.inputField = context.$refs.number1.value;
-    }, 500);
-  }
 });
 new Vue({
-  el: '#callback-success',
-  methods: {
-    closeModal() {
-      functions.modalSuccessActivity('close');
-    }
-  }
+    el: '#modal'
 });
 new Vue({
-  el: '#modal'
-});
-new Vue({
-  el: '#savings'
+    el: '#savings'
 });
 const menu = new Vue({
-  el: '#menu'
+    el: '#menu'
 });
 new Vue({
-  el: '#navMenuApp',
-  data: {
-    region: '',
-    city: '',
-    menuActive: false
-  },
-  methods: {
-    burger() {
-      if (!this.menuActive) {
-        this.$refs.burgerButton.classList.add(config.activeClass);
-        menu.$refs.mainMenu.classList.remove('is-hidden-touch');
-        menu.$refs.deepMenu.classList.add(config.activeClass);
-      } else {
-        this.$refs.burgerButton.classList.remove(config.activeClass);
-        menu.$refs.mainMenu.classList.add('is-hidden-touch');
-        menu.$refs.deepMenu.classList.remove(config.activeClass);
-      }
-      this.menuActive = !this.menuActive;
-    }
-  },
-  mounted: function() {
-    axios.get(' http://api.sypexgeo.net/json/').then(res => {
-      console.log(res);
-      this.region = res.data.region.name_ru;
-      this.city = res.data.city.name_ru;
-    });
-  }
-});
-new Vue({
-  el: '#appCarusel',
-  data: {
-    reviews: []
-  },
-  methods: {
-    downloadFile(file, name) {
-      console.log(file);
-      var link = document.createElement('a');
-      let format = null;
-      if (file.endsWith('.jpg')) {
-        format = '.jpg';
-      } else if (file.endsWith('.png')) {
-        format = '.png';
-      } else if (file.endsWith('.jpeg')) {
-        format = '.jpeg';
-      }
-      if (format === null) throw { message: 'Ошибка в формате файла' };
-      link.download = name + format;
-      link.href = config.hostUrl + '/' + file;
-      console.log(link.href);
-      link.click();
-    }
-  },
-  mounted: function() {
-    axios.get(config.hostUrl + '/api/review/all').then(res => {
-      this.reviews = res.data;
-      setTimeout(() => {
-        new Siema({
-          selector: '.siema',
-          duration: 200,
-          easing: 'ease-out',
-          perPage: 3,
-          startIndex: 0,
-          draggable: true,
-          multipleDrag: true,
-          threshold: 20,
-          loop: false,
-          rtl: false,
-          onInit: () => {},
-          onChange: () => {}
+    el: '#navMenuApp',
+    data: {
+        region: '',
+        city: '',
+        menuActive: false
+    },
+    methods: {
+        burger() {
+            if (!this.menuActive) {
+                this.$refs.burgerButton.classList.add(config.activeClass);
+                menu.$refs.mainMenu.classList.remove('is-hidden-touch');
+                menu.$refs.deepMenu.classList.add(config.activeClass);
+            } else {
+                this.$refs.burgerButton.classList.remove(config.activeClass);
+                menu.$refs.mainMenu.classList.add('is-hidden-touch');
+                menu.$refs.deepMenu.classList.remove(config.activeClass);
+            }
+            this.menuActive = !this.menuActive;
+        }
+    },
+    mounted: function () {
+        axios.get(' http://api.sypexgeo.net/json/').then(res => {
+            console.log(res);
+            this.region = res.data.region.name_ru;
+            this.city = res.data.city.name_ru;
         });
-      }, 100);
-    });
-  }
+    }
+});
+new Vue({
+    el: '#appCarusel',
+    data: {
+        reviews: []
+    },
+    methods: {
+        downloadFile(file, name) {
+            console.log(file);
+            var link = document.createElement('a');
+            let format = null;
+            if (file.endsWith('.jpg')) {
+                format = '.jpg';
+            } else if (file.endsWith('.png')) {
+                format = '.png';
+            } else if (file.endsWith('.jpeg')) {
+                format = '.jpeg';
+            }
+            if (format === null) throw {message: 'Ошибка в формате файла'};
+            link.download = name + format;
+            link.href = config.hostUrl + '/' + file;
+            console.log(link.href);
+            link.click();
+        }
+    },
+    mounted: function () {
+        axios.get(config.hostUrl + '/api/review/all').then(res => {
+            this.reviews = res.data;
+            setTimeout(() => {
+                new Siema({
+                    selector: '.siema',
+                    duration: 200,
+                    easing: 'ease-out',
+                    perPage: 3,
+                    startIndex: 0,
+                    draggable: true,
+                    multipleDrag: true,
+                    threshold: 20,
+                    loop: false,
+                    rtl: false,
+                    onInit: () => {
+                    },
+                    onChange: () => {
+                    }
+                });
+            }, 100);
+        });
+    }
 });
