@@ -474,11 +474,11 @@
                         <p class="feedback-content">
                             {{review.content}}
                         </p>
-                        <div class="open-original">
+                        <div class="open-original" @click="downloadFile(review.image, review.name)">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                            <p @click="downloadFile(review.image, review.name)">Открыть оригинал</p>
+                            <p >Открыть оригинал</p>
                         </div>
                     </div>
                 </div>
