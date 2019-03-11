@@ -90,6 +90,14 @@ body {
 .navbar {
   .navbar-brand {
     padding: 10px 0;
+    align-items: center;
+    .navbar-burger {
+      width: 70px;
+    }
+    span {
+      height: 3px;
+      color: $cyan;
+    }
   }
   .navbar-menu {
     margin-left: -12px;
@@ -560,7 +568,7 @@ body {
     }
 
     a {
-      font-size: 32px;
+      font-size: 28px;
       color: $cyan;
       font-weight: bold;
       display: block;
@@ -648,7 +656,7 @@ body {
     top: 42px;
     right: 0;
     height: calc(100% - 42px);
-    width: 35%;
+    width: 40%;
 
     .card-content {
       display: flex;
@@ -825,13 +833,22 @@ footer.footer {
     max-width: 1152px;
   }
 }
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 769px) {
+  .navbar-item {
+    margin-left: 20px;
+  }
   .card-content {
     padding: 18px !important;
   }
+  .calc-fields {
+    .field {
+      margin-top: 18px;
+    }
+  }
+
   .faq {
     .phone {
-      font-size: 28px !important;
+      font-size: 20px !important;
     }
   }
   .call-back {
@@ -849,6 +866,40 @@ footer.footer {
       .control {
         width: 100%;
         margin-bottom: 18px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .credit {
+    .card-content {
+      padding: 0 !important;
+    }
+  }
+  .hero-body {
+    h1.title {
+      font-size: 72px;
+    }
+  }
+  .address {
+    .card-address {
+      position: static;
+      width: 100%;
+      .address-block {
+        margin-bottom: 24px;
+      }
+    }
+  }
+  .calculator {
+    .number-attention {
+      margin-bottom: 24px;
+    }
+
+    .calc-fields {
+      .field {
+        width: 100%;
+        margin-bottom: 12px;
       }
     }
   }

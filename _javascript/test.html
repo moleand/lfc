@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let period = 12;
+      let percent = 0.1395;
+      let savings = 200000;
+      let result = 0;
+      let profit = 0;
+
+      for (let i = 0; i < period; i++) {
+        let addition = 20000;
+
+        if (i === 0) {
+          result += savings * (1 + percent / 12) + addition;
+        } else {
+          savings = result;
+          result += (savings * percent) / 12 + addition;
+        }
+        console.log(Math.round(result), Math.round(profit));
+      }
+    </script>
+  </body>
+</html>
