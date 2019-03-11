@@ -342,7 +342,7 @@ new Vue({
     computed: {
         requestButtonAvailable() {
             if (this.inputField) {
-                if (this.inputField.replace(/\D+/g, '').length >= 9) {
+                if (this.inputField.replace(/\D+/g, '').length >= 9     ) {
                     this.userPhone = this.inputField;
                     return true;
                 }
