@@ -745,6 +745,7 @@ footer.footer {
     margin-bottom: 48px;
   }
   h3.title {
+    color: $blue;
     font-size: 24px;
     margin-bottom: 8px;
   }
@@ -792,6 +793,29 @@ footer.footer {
     .step-details {
       font-size: 14px;
       color: $grey-2;
+    }
+  }
+  ol {
+    padding-left: 48px;
+    margin-top: 12px;
+  }
+
+  ul {
+    color: $blue;
+    margin-top: 24px;
+    margin-bottom: 64px;
+    li + li {
+      margin-top: 18px;
+    }
+    .parametr {
+      color: $grey-2;
+    }
+    .icon {
+      margin-right: 8px;
+      margin-bottom: 0;
+    }
+    i {
+      color: $cyan;
     }
   }
 }

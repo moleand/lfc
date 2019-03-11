@@ -7817,6 +7817,7 @@ footer.footer {
   margin-bottom: 48px; }
 
 .credit h3.title {
+  color: #092962;
   font-size: 24px;
   margin-bottom: 8px; }
 
@@ -7860,6 +7861,24 @@ footer.footer {
   .credit .step .step-details {
     font-size: 14px;
     color: #6577a2; }
+
+.credit ol {
+  padding-left: 48px;
+  margin-top: 12px; }
+
+.credit ul {
+  color: #092962;
+  margin-top: 24px;
+  margin-bottom: 64px; }
+  .credit ul li + li {
+    margin-top: 18px; }
+  .credit ul .parametr {
+    color: #6577a2; }
+  .credit ul .icon {
+    margin-right: 8px;
+    margin-bottom: 0; }
+  .credit ul i {
+    color: #3c80f9; }
 
 @media screen and (min-width: 1472px) {
   .container {
