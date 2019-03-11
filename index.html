@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<nav class="navbar is-transparent">
+<nav class="navbar is-transparent " id="navMenuApp">
     <div class="container">
         <div class="navbar-brand">
             <a href="#" class="navbar-item">
@@ -34,6 +34,8 @@
                     aria-label="menu"
                     aria-expanded="false"
                     data-target="navbarBasicExample"
+                    ref="burgerButton"
+                    @click="burger"
             >
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -48,7 +50,7 @@
                 <span class="icon">
                   <i class="fas fa-map-marker-alt"></i>
                 </span>
-                        <span id="app">{{region}}</span>
+                        <span>{{city}} и {{region}}</span>
                     </div>
                 </div>
             </div>
@@ -66,9 +68,9 @@
         </div>
     </div>
 </nav>
-<nav class="navbar is-transparent">
+<nav class="navbar is-transparent is-hidden-touch" ref="mainMenu" id="menu">
     <div class="container">
-        <div class="navbar-menu">
+        <div class="navbar-menu" ref="deepMenu">
           <div class="navbar-start">
             <a href="index.html" class="navbar-item">Сбережения</a>
             <a href="credit.html" class="navbar-item">Займы</a>
@@ -416,7 +418,7 @@
             </div>
             <div class="column is-half" id="call-input">
                 <div class="box">
-                    <p class="manager-call-to-action">
+                    <p class="manager-call-to-action has-text-centered-mobile">
                         Или оставьте свой телефон, мы Вам перезвоним!
                     </p>
                     <div class="field">
@@ -461,87 +463,22 @@
 <section class="section feedback">
     <div class="container">
         <h2 class="title is-3">Отзывы наших клиентов</h2>
-        <div class="siema">
-            <div class="column">
+        <div class="siema" id="appCarusel">
+            <div class="column" v-for="review in reviews">
                 <div class="card">
                     <div class="card-content">
                 <span class="icon">
                   <i class="fas fa-comment-alt"></i>
                 </span>
-                        <span class="author-name">Иванова А.А.</span>
+                        <span class="author-name">{{review.name}}</span>
                         <p class="feedback-content">
-                            Являюсь вкладчиком с апреля 2017. Накопительная программа
-                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                            выдали в подарок телевизор. Очень приятно...
+                            {{review.content}}
                         </p>
-                        <div class="open-original">
+                        <div class="open-original" @click="downloadFile(review.image, review.name)">
                   <span class="icon">
                     <i class="fas fa-envelope-open-text"></i>
                   </span>
-                            <p>Открыть оригинал</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                <span class="icon">
-                  <i class="fas fa-comment-alt"></i>
-                </span>
-                        <span class="author-name">Иванова А.А.</span>
-                        <p class="feedback-content">
-                            Являюсь вкладчиком с апреля 2017. Накопительная программа
-                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                            выдали в подарок телевизор. Очень приятно...
-                        </p>
-                        <div class="open-original">
-                  <span class="icon">
-                    <i class="fas fa-envelope-open-text"></i>
-                  </span>
-                            <p>Открыть оригинал</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                <span class="icon">
-                  <i class="fas fa-comment-alt"></i>
-                </span>
-                        <span class="author-name">Иванова А.А.</span>
-                        <p class="feedback-content">
-                            Являюсь вкладчиком с апреля 2017. Накопительная программа
-                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                            выдали в подарок телевизор. Очень приятно...
-                        </p>
-                        <div class="open-original">
-                  <span class="icon">
-                    <i class="fas fa-envelope-open-text"></i>
-                  </span>
-                            <p>Открыть оригинал</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                <span class="icon">
-                  <i class="fas fa-comment-alt"></i>
-                </span>
-                        <span class="author-name">Иванова А.А.</span>
-                        <p class="feedback-content">
-                            Являюсь вкладчиком с апреля 2017. Накопительная программа
-                            Проценты за год получила вовремя. В 2018 пополнила вклад и мне
-                            выдали в подарок телевизор. Очень приятно...
-                        </p>
-                        <div class="open-original">
-                  <span class="icon">
-                    <i class="fas fa-envelope-open-text"></i>
-                  </span>
-                            <p>Открыть оригинал</p>
+                            <p >Открыть оригинал</p>
                         </div>
                     </div>
                 </div>
@@ -814,7 +751,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="lib/main.js"></script>
+<script type="text/javascript" src="_javascript/main.js"></script>
 <script>
     $(document).ready(function () {
         $('#phone').mask('+7 (999) 999-99-99', {autoclear: false});
@@ -880,22 +817,8 @@
         src="node_modules/siema/dist/siema.min.js"
 ></script>
 <script>
-    new Siema({
-        selector: '.siema',
-        duration: 200,
-        easing: 'ease-out',
-        perPage: 3,
-        startIndex: 0,
-        draggable: true,
-        multipleDrag: true,
-        threshold: 20,
-        loop: false,
-        rtl: false,
-        onInit: () => {
-        },
-        onChange: () => {
-        }
-    });
+
+
 </script>
 </body>
 </html>
