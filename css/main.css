@@ -7370,7 +7370,7 @@ body {
 
 .navbar:last-of-type {
   border-top: 1px solid #e6e6e6;
-  box-shadow: 0 6px 16px rgba(34, 34, 34, 0.15); }
+  box-shadow: 0 6px 16px rgba(9, 41, 98, 0.1); }
   .navbar:last-of-type a.navbar-item:hover {
     background-color: #3c80f9 !important;
     color: #fff; }
