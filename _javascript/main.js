@@ -117,7 +117,8 @@ Vue.component('inputFieldText', {
         max: Number,
         min: Number,
         val: Number,
-        sliderMult: Number
+        sliderMult: Number,
+        unitsError: Number
     },
     template: `
     <div class="field">
@@ -152,7 +153,7 @@ Vue.component('inputFieldText', {
         return {
             errorMessage: false,
             errorMessageText: `Значение должно находиться в пределах между ${this.min.toLocaleString()} и ${this.max.toLocaleString()} ${
-                this.units
+                this.unitsError
                 }`,
             value: this.val
         };
