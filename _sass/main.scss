@@ -31,6 +31,10 @@ $navbar-item-img-max-height: 3.5rem;
 @import '../node_modules/bulma/bulma';
 @import '../node_modules/bulma-pricingtable/src/sass/index';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 
@@ -113,7 +117,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    margin-left: 30px;
+    margin-left: 60px;
 
     .region-header {
       display: block;
@@ -148,12 +152,27 @@ body {
 }
 
 .hero {
+  position: relative;
+
   .hero-image {
-    // background-image: url('../img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin: -48px 0;
+    position: absolute;
+    left: 0;
+    img {
+      height: 433px;
+      object-fit: cover;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+  .hero-image::after {
+    position: absolute;
+    background-image: linear-gradient(to right, #092962, transparent 60%);
+    top: 0;
+    left: 0;
+    height: 433px;
+    width: 100%;
+    content: '';
+    z-index: 0;
   }
 
   span {
