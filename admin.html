@@ -211,7 +211,7 @@
 
         </div>
     </section>
-    <section class="section" style="margin-top: -10px;">
+    <section class="section" style="margin-top: -10px;" v-show="editMod">
         <div class="container">
             <label class="label" style="margin-bottom: 20px">Предпросмотр</label>
         </div>
@@ -256,6 +256,14 @@
         </div>
         <button class="modal-close is-large" aria-label="close"  @click="closeModal"></button>
     </div>
+</div>
+
+<div id="statsApp" v-show="show">
+    <section class="section">
+        <div class="container">
+
+        </div>
+    </section>
 </div>
 
 

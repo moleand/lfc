@@ -195,3 +195,71 @@ new Vue({
             })
     }
 });
+new Vue({
+    el: '#call-input',
+    data: {
+        userPhone: '',
+        inputField: null,
+        userName: null
+    },
+    computed: {
+        requestButtonAvailable() {
+            if (this.inputField) {
+                if (this.inputField.replace(/\D+/g, '').length >= 9) {
+                    this.userPhone = this.inputField;
+                    return true;
+                }
+            }
+            if(this.$refs.button)
+                if(this.$refs.button.classList.contains('is-loading')){
+                    return false;
+                }
+            return false;
+        }
+    },
+    methods: {
+        callRequest() {
+            this.$refs.button.classList.add('is-loading');
+            let body = {
+                user: {
+                    name: this.userName,
+                    phone: this.userPhone
+                },
+                html: `<div>
+                        <h3>Контактные данные</h3>
+                        <h4>
+                            Имя:  <span style="font-weight:normal">
+                           ${this.userName ? this.userName : 'Клиент'}
+                           </span>
+                        </h4>
+                        <h4>
+                            Номер:  <span style="font-weight:normal">
+                                    ${this.userPhone}
+                                    </span>
+                        </h4>
+                    </div>`
+            };
+            axios
+                .post(config.hostUrl + '/api/order/phone', body)
+                .then(res => {
+                    functions.modalSuccessActivity('open');
+                    setTimeout(() => {
+                        functions.modalSuccessActivity('close');
+                    }, 5000);
+                    this.$refs.button.classList.remove('is-loading');
+                })
+                .catch(err => {
+                    console.log(err);
+                    this.$refs.button.classList.remove('is-loading');
+
+                });
+        }
+    },
+    mounted: function () {
+        let context = this;
+        setInterval(() => {
+            context.inputField = context.$refs.number1.value;
+        }, 500);
+    }
+});
+

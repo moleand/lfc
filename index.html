@@ -21,6 +21,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="_javascript/axios.min.js"></script>
     <script src="_javascript/vue.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -74,8 +79,8 @@
     <div class="container">
         <div class="navbar-menu" ref="deepMenu">
           <div class="navbar-start">
-            <a href="index.html" class="navbar-item">Сбережения</a>
-            <a href="credit.html" class="navbar-item">Займы</a>
+            <a href="" class="navbar-item">Сбережения</a>
+            <a href="credit" class="navbar-item">Займы</a>
             <a href="#insurance" class="navbar-item">Страхование</a>
             <a href="#documents" class="navbar-item">Документы</a>
             <a href="#feedback" class="navbar-item">Отзывы</a>
@@ -114,7 +119,7 @@
                 <div class="calc-fields">
 
                     <input-field-text v-on:value-changed="savings = $event" label="Сумма сбережений"
-                                      units="рублей" :max="10000000" :min="30000" :val="100000" :slider-mult="10000">
+                                      units="рублей" :max="10000000" :min="30000" :val="100000" :slider-mult="10000" units-error="рублей">
                     </input-field-text>
 
                     <input-field-select v-on:value-changed="procentType = $event" label="Выплата процентов"
@@ -122,11 +127,11 @@
                     </input-field-select>
 
                     <input-field-text v-on:value-changed="savingsPerMonth = $event" label="Сумма пополнения"
-                                      units="рублей / месяц" :max="500000" :min="0" :val="0" :slider-mult="10000">
+                                      units="рублей / месяц" :max="500000" :min="0" :val="0" :slider-mult="10000" units-error="рублей">
                     </input-field-text>
 
                     <input-field-text v-on:value-changed="period = $event" label="Срок сбережения"
-                                      units="месяцев" :max="36" :min="3" :val="12" :slider-mult="1">
+                                      units="месяцев" :max="36" :min="3" :val="12" :slider-mult="1" units-error="месяцами">
                     </input-field-text>
                 </div>
             </div>
@@ -437,7 +442,7 @@
                             />
                         </div>
                         <div class="control">
-                            <a class="button is-info" @click="callRequest" :disabled="!requestButtonAvailable">
+                            <a class="button is-info" @click="callRequest" :disabled="!requestButtonAvailable" ref="button">
                                 Перезвоните мне!
                             </a>
                             <span>Перезвоним в течение 15 минут!</span>

@@ -28,7 +28,7 @@
     <nav class="navbar is-transparent" id="navMenuApp">
       <div class="container">
         <div class="navbar-brand">
-          <a href="index.html" class="navbar-item">
+          <a href="" class="navbar-item">
             <img src="img/LFC.png" alt="" />
           </a>
           <a
@@ -53,7 +53,7 @@
                 <span class="icon">
                   <i class="fas fa-map-marker-alt"></i>
                 </span>
-                <span>{{ city }} и {{ region }}</span>
+                <span>{{ region }}</span>
               </div>
             </div>
           </div>
@@ -77,12 +77,12 @@
       <div class="container">
         <div class="navbar-menu" ref="deepMenu">
           <div class="navbar-start">
-            <a href="index.html" class="navbar-item">Сбережения</a>
-            <a href="credit.html" class="navbar-item">Займы</a>
-            <a href="index.html#insurance" class="navbar-item">Страхование</a>
-            <a href="index.html#documents" class="navbar-item">Документы</a>
-            <a href="index.html#feedback" class="navbar-item">Отзывы</a>
-            <a href="#address" class="navbar-item">Контакты</a>
+            <a href="/" class="navbar-item">Сбережения</a>
+            <a href="credit" class="navbar-item">Займы</a>
+            <a href="/#insurance" class="navbar-item">Страхование</a>
+            <a href="/#documents" class="navbar-item">Документы</a>
+            <a href="/#feedback" class="navbar-item">Отзывы</a>
+            <a href="/#address" class="navbar-item">Контакты</a>
           </div>
         </div>
       </div>
@@ -415,6 +415,7 @@
                     class="button is-info"
                     @click="callRequest"
                     :disabled="!requestButtonAvailable"
+                    ref="button"
                   >
                     Перезвоните мне!
                   </a>
