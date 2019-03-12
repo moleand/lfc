@@ -7390,7 +7390,7 @@ body {
       z-index: 0; }
   .hero .hero-image::after {
     position: absolute;
-    background-image: linear-gradient(to right, #092962, transparent 60%);
+    background-image: linear-gradient(to right, #092962, transparent 100%);
     top: 0;
     left: 0;
     height: 433px;

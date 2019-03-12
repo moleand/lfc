@@ -120,9 +120,9 @@ Vue.component('inputFieldText', {
     sliderMult: Number
   },
   template: `
-    <div class="field">
+    <div class="field" style="position: relative">
                 <label class="label">{{label}}</label>
-                <label class="label" style="color:red" v-if="errorMessage">{{errorMessageText}}</label>
+                
                 <p class="control">
                   <input
                     class="input"
@@ -146,6 +146,7 @@ Vue.component('inputFieldText', {
                     :value="value/sliderMult"
                   />
                 </p>
+                <label class="label" style="color: #F04539; font-size: 12px; font-weight: 400; text-transform: none; margin-top: 24px; position: absolute; width: 100%;" v-if="errorMessage">{{errorMessageText}}</label>
               </div>
     `,
   data: function() {
