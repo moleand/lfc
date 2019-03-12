@@ -164,15 +164,18 @@ Vue.component('inputFieldText', {
     },
     methods: {
         input(event) {
+            let previous = this.value;
             let number = event.target.value.replace(/[^0-9]/g, '');
             number = +number;
             if (number < this.min || number > this.max) {
                 this.errorMessage = true;
+                event.target.value = number.toLocaleString();
             } else {
+                this.value = number;
+                event.target.value = number.toLocaleString();
                 this.errorMessage = false;
             }
-            this.value = number;
-            event.target.value = number.toLocaleString();
+
         },
         inputSlider(event) {
             this.value = event.target.value * this.sliderMult;
@@ -180,7 +183,8 @@ Vue.component('inputFieldText', {
         }
     },
     mounted: function () {
-        this.$refs.numInputField.value = this.value;
+        this.$refs.numInputField.value = this.value.toLocaleString();
+
     }
 });
 Vue.component('modal', {
