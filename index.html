@@ -88,12 +88,26 @@
             <a href="#feedback" class="navbar-item">Отзывы</a>
             <a href="#address" class="navbar-item">Контакты</a>
           </div>
+        <div class="navbar-end is-hidden-desktop">
+            <a href="tel:88005559384" class="navbar-item">
+                <span class="icon">
+                    <i class="fas fa-phone"></i>
+                </span>
+                <span>8 (800) 555-93-84</span>
+            </a>
+            <div class="navbar-item">
+                <button class="button is-info" onclick="functions.requestCall()">Заказать звонок</button>
+            </div>
+        </div>
         </div>
     </div>
 </nav>
 <section class="hero is-link">
     <div class="hero-image">
-<img src="img/hero-image.jpg" alt="" class="">
+        <picture>
+            <source media="(max-width: 769px)" srcset="img/hero-image-sm.jpg">
+            <img src="img/hero-image.jpg" alt="" class="">
+        </picture>
     </div>
     <div class="hero-body">
         <div class="container">

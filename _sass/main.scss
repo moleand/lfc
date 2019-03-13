@@ -878,9 +878,6 @@ footer.footer {
   }
 }
 @media screen and (max-width: 769px) {
-  .navbar-item {
-    margin-left: 20px;
-  }
   .card-content {
     padding: 18px !important;
   }
@@ -891,8 +888,10 @@ footer.footer {
   }
 
   .faq {
-    .phone {
-      font-size: 20px !important;
+    .questions-contacts {
+      a.phone {
+        font-size: 20px;
+      }
     }
   }
   .call-back {
@@ -916,6 +915,19 @@ footer.footer {
 }
 
 @media screen and (max-width: 414px) {
+  .faq {
+    .questions-contacts {
+      .card-content {
+        text-align: center;
+        p {
+          font-size: 24px;
+        }
+        a.phone {
+          font-size: 28px;
+        }
+      }
+    }
+  }
   .credit {
     .card-content {
       padding: 0 !important;
@@ -945,6 +957,20 @@ footer.footer {
         width: 100%;
         margin-bottom: 12px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1087px) {
+  .navbar-item {
+    margin-left: 20px;
+  }
+  .navbar-end {
+    .navbar-item {
+      padding: 12px 12px;
+    }
+    a.navbar-item {
+      font-size: 18px;
     }
   }
 }

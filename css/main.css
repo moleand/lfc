@@ -7921,14 +7921,12 @@ footer.footer {
     max-width: 1152px; } }
 
 @media screen and (max-width: 769px) {
-  .navbar-item {
-    margin-left: 20px; }
   .card-content {
     padding: 18px !important; }
   .calc-fields .field {
     margin-top: 18px; }
-  .faq .phone {
-    font-size: 20px !important; }
+  .faq .questions-contacts a.phone {
+    font-size: 20px; }
   .call-back .manager-photo {
     height: 70px;
     width: 70px;
@@ -7943,6 +7941,12 @@ footer.footer {
       margin-bottom: 18px; } }
 
 @media screen and (max-width: 414px) {
+  .faq .questions-contacts .card-content {
+    text-align: center; }
+    .faq .questions-contacts .card-content p {
+      font-size: 24px; }
+    .faq .questions-contacts .card-content a.phone {
+      font-size: 28px; }
   .credit .card-content {
     padding: 0 !important; }
   .hero-body h1.title {
@@ -7957,3 +7961,11 @@ footer.footer {
   .calculator .calc-fields .field {
     width: 100%;
     margin-bottom: 12px; } }
+
+@media screen and (max-width: 1087px) {
+  .navbar-item {
+    margin-left: 20px; }
+  .navbar-end .navbar-item {
+    padding: 12px 12px; }
+  .navbar-end a.navbar-item {
+    font-size: 18px; } }
