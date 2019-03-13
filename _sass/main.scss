@@ -522,6 +522,7 @@ body {
   .siema {
     cursor: default !important;
     margin: -12px;
+    height: auto;
   }
   .card-content {
     i,
@@ -537,13 +538,32 @@ body {
     .open-original {
       display: flex;
       align-items: flex-start;
+      cursor: pointer;
       padding: 12px;
       background: $grey-3;
       width: auto;
+      max-width: 200px;
 
       i,
       span {
         color: $blue;
+      }
+
+      p {
+        line-height: 150%;
+      }
+
+      &:hover {
+        background-color: $cyan;
+        color: $white;
+
+        i {
+          color: white;
+        }
+
+        p {
+          color: white;
+        }
       }
     }
     p.feedback-content {

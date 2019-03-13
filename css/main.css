@@ -7645,7 +7645,8 @@ body {
 
 .feedback .siema {
   cursor: default !important;
-  margin: -12px; }
+  margin: -12px;
+  height: auto; }
 
 .feedback .card-content i,
 .feedback .card-content span {
@@ -7660,12 +7661,23 @@ body {
 .feedback .card-content .open-original {
   display: flex;
   align-items: flex-start;
+  cursor: pointer;
   padding: 12px;
   background: #d0d7e8;
-  width: auto; }
+  width: auto;
+  max-width: 200px; }
   .feedback .card-content .open-original i,
   .feedback .card-content .open-original span {
     color: #092962; }
+  .feedback .card-content .open-original p {
+    line-height: 150%; }
+  .feedback .card-content .open-original:hover {
+    background-color: #3c80f9;
+    color: white; }
+    .feedback .card-content .open-original:hover i {
+      color: white; }
+    .feedback .card-content .open-original:hover p {
+      color: white; }
 
 .feedback .card-content p.feedback-content {
   font-size: 14px;
