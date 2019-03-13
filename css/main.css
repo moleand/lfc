@@ -7382,7 +7382,8 @@ body {
   position: relative; }
   .hero .hero-image {
     position: absolute;
-    left: 0; }
+    left: 0;
+    width: 100%; }
     .hero .hero-image img {
       height: 433px;
       object-fit: cover;
