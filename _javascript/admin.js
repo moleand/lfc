@@ -1,5 +1,5 @@
 let config = {
-    hostname: 'http://localhost'
+    hostname: 'http://188.68.210.217'
 };
 let newReviewApp = new Vue({
     el: '#newReview',
