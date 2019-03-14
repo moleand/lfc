@@ -26,8 +26,7 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="msapplication-config" content="favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -451,10 +450,10 @@
                         <div class="control">
                             <input
                                     class="input"
-                                    type="text"
                                     placeholder="Введите свой номер"
                                     ref="number1"
                                     id="phone"
+                                    type="tel"
                             />
                         </div>
                         <div class="control">
@@ -775,6 +774,8 @@
     <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="_javascript/main.js"></script>

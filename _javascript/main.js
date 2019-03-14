@@ -127,7 +127,7 @@ Vue.component('inputFieldText', {
                 <p class="control">
                   <input
                     class="input"
-                    type="summ"
+                    type="tel"
                     value="100 000"
                     :min="min"
                     :max="max"
