@@ -6,11 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ленинградский финансовый центр</title>
+  <link rel="preload" href="img/LFC.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://api-maps.yandex.ru" crossorigin>
+  <link rel="preconnect" href="http://api.sypexgeo.net" crossorigin>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" media="none" onload="if(media!='all')media='all'" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
-  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet"
+        media="none" onload="if(media!='all')media='all'" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -20,8 +25,7 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="msapplication-config" content="favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <meta name="yandex-verification" content="2d91151da9dc9701" />
   <meta name="google-site-verification" content="5SbVp05FginIGzdadFZ_aaFgodsArPUhQTp5bHNxHyc" />
 </head>
@@ -31,7 +35,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a href="index" class="navbar-item">
-          <img src="img/LFC.jpg" alt="" />
+          <img src="img/LFC.png" alt="LFC" />
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample" ref="burgerButton" @click="burger">
@@ -359,7 +363,7 @@
       <div class="columns is-multiline">
         <div class="column is-half">
           <div class="box">
-            <img src="img/manager.jpg" alt="" class="manager-photo" />
+            <img src="img/manager.jpg" alt="manager" class="manager-photo" />
             <div class="manager-info">
               <p class="manager-call-to-action">
                 Позвоните нашему менеджеру
@@ -442,7 +446,7 @@
     <div class="container">
       <div class="columns">
         <div class="column">
-          <img src="img/LFC.png" alt="" />
+          <img src="img/LFC.png" alt="LFC" />
         </div>
         <div class="column is-four-fifths">
           <p>
@@ -482,9 +486,11 @@
     <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="_javascript/editPage.js"></script>
+  <script type="text/javascript" src="lib/editPage.js" async></script>
   <script>
     $(document).ready(function () {
       $('#phone').mask('+7 (999) 999-99-99', { autoclear: false });

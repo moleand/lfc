@@ -9,7 +9,7 @@
 
   <link rel="preload" href="img/hero-image-mobile.jpg" media="(max-width: 769px)" as="image">
   <link rel="preload" href="img/manager.jpg" as="image">
-  <link rel="preload" href="img/LFC.jpg" as="image">
+  <link rel="preload" href="img/LFC.png" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://api-maps.yandex.ru" crossorigin>
   <link rel="preconnect" href="http://api.sypexgeo.net" crossorigin>
@@ -32,7 +32,6 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="yandex-verification" content="2d91151da9dc9701" />
   <meta name="google-site-verification" content="5SbVp05FginIGzdadFZ_aaFgodsArPUhQTp5bHNxHyc" />
-
 </head>
 
 <body>
@@ -40,7 +39,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a href="#" class="navbar-item">
-          <img src="img/LFC.jpg" alt="" />
+          <img src="img/LFC.png" alt="LFC" />
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample" ref="burgerButton" @click="burger">
@@ -104,7 +103,7 @@
     <div class="hero-image">
       <picture>
         <source media="(max-width: 769px)" srcset="img/hero-image-sm.jpg">
-        <img src="img/hero-image.jpg" alt="" class="">
+        <img src="img/hero-image.jpg" alt="hero" class="">
       </picture>
     </div>
     <div class="hero-body">
@@ -180,7 +179,7 @@
             <div class="card-content">
               <div class="card-header">
                 <figure class="image">
-                  <img src="img/shield.svg" alt="">
+                  <img src="img/shield.svg" alt="shiled">
                 </figure>
                 <h3 class="title is-4">
                   Надежность сбережений и высокий доход
@@ -200,7 +199,7 @@
             <div class="card-content">
               <div class="card-header">
                 <figure class="image">
-                  <img src="img/savings.svg" alt="">
+                  <img src="img/savings.svg" alt="savings">
                 </figure>
                 <h3 class="title is-4">Формируем резервы</h3>
               </div>
@@ -216,7 +215,7 @@
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile" style="display: none;">
           <div class=" card">
             <div class="card-content">
-              <img src="img/insurance.png" alt="" />
+              <img src="img/insurance.png" alt="insurance" />
               <div class="card-header">
                 <h3 class="title is-4 has-text-centered">
                   Сбережения пайщиков застрахованы
@@ -244,7 +243,7 @@
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile" style="display: none;">
           <div class="card">
             <div class="card-content">
-              <img src="img/standarts.png" alt="" />
+              <img src="img/standarts.png" alt="standarts" />
               <div class="card-header">
                 <h3 class="title is-4 has-text-centered">
                   Соблюдаем отраслевые стандарты
@@ -264,7 +263,7 @@
         <div class="column is-one-third-desktop is-half-tablet is-full-mobile" style="display: none;">
           <div class=" card">
             <div class="card-content">
-              <img src="img/cbrf.png" alt="" />
+              <img src="img/cbrf.png" alt="cbrf" />
               <div class="card-header">
                 <h3 class="title is-4 has-text-centered">
                   Работаем под контролем ЦБ РФ
@@ -420,7 +419,7 @@
       <div class="columns is-multiline">
         <div class="column is-half">
           <div class="box">
-            <img src="img/manager.jpg" alt="" class="manager-photo" />
+            <img src="img/manager.jpg" alt="manager" class="manager-photo" />
             <div class="manager-info">
               <p class="manager-call-to-action">
                 Позвоните нашему менеджеру
@@ -718,7 +717,7 @@
     <div class="container">
       <div class="columns">
         <div class="column">
-          <img src="img/LFC.jpg" alt="">
+          <img src="img/LFC.png" alt="LFC">
         </div>
         <div class="column is-four-fifths">
           <p>Продукты КПК «Ленинградский Финансовый Центр» доступны только для пайщиков кооператива на основе
@@ -762,7 +761,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="_javascript/main.js" async></script>
+  <script type="text/javascript" src="lib/main.js" async></script>
   <script>
     $(document).ready(function () {
       $('#phone').mask('+7 (999) 999-99-99', { autoclear: false });
