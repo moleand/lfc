@@ -709,7 +709,7 @@ body {
     top: 42px;
     right: 0;
     height: calc(100% - 42px);
-    width: 40%;
+    width: 50%;
 
     .card-content {
       display: flex;
@@ -717,6 +717,12 @@ body {
       flex-direction: column;
       justify-content: space-between !important;
 
+      .tabs li a {
+        color: $grey-2;
+      }
+      .tabs .is-active a {
+        color: $blue;
+      }
       span {
         color: $grey-2;
         font-size: 14px;

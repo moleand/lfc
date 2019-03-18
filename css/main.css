@@ -7784,12 +7784,16 @@ body {
   top: 42px;
   right: 0;
   height: calc(100% - 42px);
-  width: 40%; }
+  width: 50%; }
   .address .card-address .card-content {
     display: flex;
     height: 100%;
     flex-direction: column;
     justify-content: space-between !important; }
+    .address .card-address .card-content .tabs li a {
+      color: #6577a2; }
+    .address .card-address .card-content .tabs .is-active a {
+      color: #092962; }
     .address .card-address .card-content span {
       color: #6577a2;
       font-size: 14px; }
