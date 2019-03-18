@@ -525,6 +525,14 @@ body {
     height: auto;
   }
   .card-content {
+    min-height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .feedback-content {
+      width: 100%;
+    }
+
     i,
     span {
       font-size: 18px;
@@ -543,6 +551,7 @@ body {
       background: $grey-3;
       width: auto;
       max-width: 200px;
+      margin-top: auto;
 
       i,
       span {

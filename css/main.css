@@ -7648,41 +7648,45 @@ body {
   margin: -12px;
   height: auto; }
 
-.feedback .card-content i,
-.feedback .card-content span {
-  font-size: 18px;
-  color: #092962; }
-
-.feedback .card-content .icon {
-  height: auto;
-  width: auto;
-  margin-right: 12px; }
-
-.feedback .card-content .open-original {
+.feedback .card-content {
+  min-height: 250px;
   display: flex;
-  align-items: flex-start;
-  cursor: pointer;
-  padding: 12px;
-  background: #d0d7e8;
-  width: auto;
-  max-width: 200px; }
-  .feedback .card-content .open-original i,
-  .feedback .card-content .open-original span {
+  flex-wrap: wrap; }
+  .feedback .card-content .feedback-content {
+    width: 100%; }
+  .feedback .card-content i,
+  .feedback .card-content span {
+    font-size: 18px;
     color: #092962; }
-  .feedback .card-content .open-original p {
-    line-height: 150%; }
-  .feedback .card-content .open-original:hover {
-    background-color: #3c80f9;
-    color: white; }
-    .feedback .card-content .open-original:hover i {
+  .feedback .card-content .icon {
+    height: auto;
+    width: auto;
+    margin-right: 12px; }
+  .feedback .card-content .open-original {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    padding: 12px;
+    background: #d0d7e8;
+    width: auto;
+    max-width: 200px;
+    margin-top: auto; }
+    .feedback .card-content .open-original i,
+    .feedback .card-content .open-original span {
+      color: #092962; }
+    .feedback .card-content .open-original p {
+      line-height: 150%; }
+    .feedback .card-content .open-original:hover {
+      background-color: #3c80f9;
       color: white; }
-    .feedback .card-content .open-original:hover p {
-      color: white; }
-
-.feedback .card-content p.feedback-content {
-  font-size: 14px;
-  margin-bottom: 24px;
-  margin-top: 24px; }
+      .feedback .card-content .open-original:hover i {
+        color: white; }
+      .feedback .card-content .open-original:hover p {
+        color: white; }
+  .feedback .card-content p.feedback-content {
+    font-size: 14px;
+    margin-bottom: 24px;
+    margin-top: 24px; }
 
 .documents .box {
   box-shadow: none;
