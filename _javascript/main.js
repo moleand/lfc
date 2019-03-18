@@ -1,6 +1,6 @@
 'use strict';
 const config = {
-    hostUrl: 'http://188.68.210.217',
+    hostUrl: 'https://lenfincentr.ru',
     modalClass: 'modal',
     activeClass: 'is-active',
     modalTitle: 'Укажите Ваш телефон и наш сотрудник свяжется с Вами!'

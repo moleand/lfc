@@ -1,5 +1,5 @@
 let config = {
-    hostname: 'http://188.68.210.217'
+    hostname: 'https://lenfincentr.ru'
 };
 let newReviewApp = new Vue({
     el: '#newReview',
