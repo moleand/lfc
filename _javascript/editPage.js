@@ -187,7 +187,7 @@ new Vue({
         }
     },
     mounted: function () {
-        axios.get(' http://api.sypexgeo.net/json/')
+        axios.get(' https://api.sypexgeo.net/json/')
             .then(res => {
                 console.log(res);
                 this.region = res.data.region.name_ru;
