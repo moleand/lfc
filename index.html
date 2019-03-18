@@ -72,7 +72,7 @@
             <span class="icon">
               <i class="fas fa-phone"></i>
             </span>
-            <span>8 (800) 555-93-84</span>
+            <span id="numreg1">8 (800) 555-93-84</span>
           </a>
           <div class="navbar-item">
             <button class="button is-info" onclick="functions.requestCall()">Заказать звонок</button>
@@ -97,7 +97,7 @@
             <span class="icon">
               <i class="fas fa-phone"></i>
             </span>
-            <span>8 (800) 555-93-84</span>
+            <span id="numreg2">8 (800) 555-93-84</span>
           </a>
           <div class="navbar-item">
             <button class="button is-info" onclick="functions.requestCall()">Заказать звонок</button>
@@ -431,7 +431,7 @@
               <p class="manager-call-to-action">
                 Позвоните нашему менеджеру
               </p>
-              <a href="tel:88005559384" class="phone-number">8 (800) 555-93-84</a>
+              <a href="tel:88005559384" class="phone-number" id="numreg3">8 (800) 555-93-84</a>
             </div>
           </div>
         </div>
@@ -456,7 +456,7 @@
         <div class="column is-half">
           <div class="box work-hours">
             <p>Режим работы:</p>
-            <p>
+            <p id="workHours">
               Понедельник-Пятница с 10:00 до 20:00<br />
               Суббота-Воскресенье с 10:00 до 18:00
             </p>
@@ -680,7 +680,7 @@
           <div class="card questions-contacts">
             <div class="card-content">
               <p>Остались вопросы? Звоните!</p>
-              <a href="tel:88005559384" class="phone">8 (800) 555-93-84</a>
+              <a href="tel:88005559384" class="phone" id="numreg4">8 (800) 555-93-84</a>
               <span>Звонок по России бесплатный</span>
             </div>
           </div>
@@ -697,20 +697,20 @@
           src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af56eb54c5fdaf669f5ac5f3dd449cee175635fe065a31fa6cd3b80896cc512fa&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
       </div>
       <div class="card card-address">
-        <div class="card-content">
+        <div class="card-content" id="addressTabs">
           <div class="tabs is-centered is-fullwidth">
             <ul>
-              <li class="is-active"><a>Москва</a></li>
-              <li><a>Санкт-Петербург</a></li>
+              <li class="is-active" @click="selectTab(0, $event)" ref="msc"><a>Москва</a></li>
+              <li  @click="selectTab(1, $event)" ref="spb"><a>Санкт-Петербург</a></li>
             </ul>
           </div>
           <div class="address-block">
             <span>Адрес отделения</span>
-            <p>Москва, 1-я Тверская-Ямская улица, 24</p>
+            <p>{{address.street}}</p>
           </div>
           <div class="address-block">
             <span>Телефон</span>
-            <a href="tel:88005559384">8 (800) 555-93-84</a>
+            <a :href="'tel:'+address.phone">{{address.phone}}</a>
           </div>
           <div class="address-block">
             <span>Электронная почта</span>
@@ -718,8 +718,8 @@
           </div>
           <div class="address-block">
             <span>Режим работы</span>
-            <p>Понедельник-Пятница с 10:00 до 20:00<br />
-              Суббота-Воскресенье с 10:00 до 18:00</p>
+            <p>{{address.time.mon}}<br />
+              {{address.time.sut}}</p>
           </div>
         </div>
       </div>
@@ -775,6 +775,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="_javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="lib/main.js" async></script>
+  <script>
+      function changeNumBasedOnRegion(){
+          axios.get(' https://api.sypexgeo.net/json/').then(function (res) {
+              let num = res.data.region.name_ru === 'Московская область' ? '8 (800) 555-93-84' : '8 (800) 555-90-53';
+              let work = res.data.region.name_ru === 'Московская область' ? 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+                  '              Суббота-Воскресенье с 10:00 до 18:00' : 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+                  '              Суббота-Воскресенье с 11:00 до 18:00';
+              let numAsNum = res.data.region.name_ru === 'Московская область' ? 88005559384 : 88005559053;
+
+              document.getElementById('workHours').innerHTML = work;
+              for(let i = 1; i < 5; i++) {
+                  let elem = document.getElementById('numreg'+i.toString());
+                  elem.innerText = num;
+                  if (elem.hasAttribute('href'))
+                      elem.setAttribute('href', 'tel:' + numAsNum.toString());
+              }
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', changeNumBasedOnRegion);
+  </script>
   <script>
     $(document).ready(function () {
       $('#phone').mask('+7 (999) 999-99-99', { autoclear: false });
