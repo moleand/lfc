@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+
+User-agent: Yandex
+Disallow:
+
+Host: https://lenfincentr.ru
+
+Sitemap: https://lenfincentr.ru/sitemap.xml
