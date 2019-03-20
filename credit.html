@@ -510,11 +510,11 @@
   <script>
       function changeNumBasedOnRegion(){
           axios.get(' https://api.sypexgeo.net/json/').then(function (res) {
-              let num = res.data.region.name_ru === 'Московская область' ? '8 (800) 555-93-84' : '8 (800) 555-90-53';
-              let work = res.data.region.name_ru === 'Московская область' ? 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
-                  '              Суббота-Воскресенье с 10:00 до 18:00' : 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
-                  '              Суббота-Воскресенье с 11:00 до 18:00';
-              let numAsNum = res.data.region.name_ru === 'Московская область' ? 88005559384 : 88005559053;
+              let num = res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? '8 (800) 555-90-53' : '8 (800) 555-93-84';
+              let work = res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+                  '              Суббота-Воскресенье с 11:00 до 18:00' : 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+                  '              Суббота-Воскресенье с 10:00 до 18:00';
+              let numAsNum =  res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? 88005559053 : 88005559384;
 
               document.getElementById('workHours').innerHTML = work;
               for(let i = 1; i < 3; i++) {
