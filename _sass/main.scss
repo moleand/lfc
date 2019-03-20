@@ -716,12 +716,26 @@ body {
       height: 100%;
       flex-direction: column;
       justify-content: space-between !important;
-
+      .tabs {
+        margin: -36px -36px 0;
+        ul {
+          border: none;
+        }
+      }
       .tabs li a {
         color: $grey-2;
+        background-color: #fff;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+      .tabs .is-active {
+        border-top: 1px solid $blue;
       }
       .tabs .is-active a {
         color: $blue;
+        background-color: $white-ter;
       }
       span {
         color: $grey-2;
