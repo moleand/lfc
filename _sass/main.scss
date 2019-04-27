@@ -321,6 +321,35 @@ body {
   }
 }
 
+.holidays {
+  background-color: $white-ter;
+  color: $blue;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  .content {
+    max-width: 600px;
+  }
+  .holiday-title {
+    margin-bottom: 16px;
+  }
+  .holiday-text {
+    color: $grey-2;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  span {
+    color: $blue;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .warning {
+    font-weight: 600;
+    color: $blue;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
 .insurance {
   .card {
     transition: 0.4s ease-in-out;
