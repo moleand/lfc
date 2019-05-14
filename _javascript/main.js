@@ -262,6 +262,7 @@ Vue.component('modal', {
                     ${user.editionInfo ? user.editionInfo : ''}
              `
             };
+            console.log(body);
             axios
                 .post(config.hostUrl + '/api/order/program', body)
                 .then(() => {
@@ -467,6 +468,7 @@ new Vue({
                         <h4>Город: <span style="font-weight: normal">${this.city ? this.city : 'Не определен'}</span></h4>
                     </div>`
             };
+            console.log(body);
             axios
                 .post(config.hostUrl + '/api/order/phone', body)
                 .then(res => {
