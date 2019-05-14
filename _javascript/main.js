@@ -297,9 +297,10 @@ Vue.component('modal', {
         setInterval(() => {
             context.inputFieldNumber = this.$refs.phone.value;
         }, 500);
-        axios.get('https://api.sypexgeo.net/json/').then(res => {
-            context.region = res.data.region.name_ru;
-            context.city = res.data.city.name_ru;
+        axios.get(' https://api.sypexgeo.net/json/').then(res => {
+            console.log(res);
+            this.region = res.data.region.name_ru;
+            this.city = res.data.city.name_ru;
         });
     }
 });
@@ -490,9 +491,10 @@ new Vue({
         setInterval(() => {
             context.inputField = context.$refs.number1.value;
         }, 500);
-        axios.get('https://api.sypexgeo.net/json/').then(res => {
-            context.region = res.data.region.name_ru;
-            context.city = res.data.city.name_ru;
+        axios.get(' https://api.sypexgeo.net/json/').then(res => {
+            console.log(res);
+            this.region = res.data.region.name_ru;
+            this.city = res.data.city.name_ru;
         });
     }
 });
