@@ -220,7 +220,9 @@ Vue.component('modal', {
             inputFieldNumber: null,
             userPhone: null,
             userName: null,
-            title: this.initTitle
+            title: this.initTitle,
+            region: null,
+            city: null
         };
     },
     computed: {
@@ -254,6 +256,8 @@ Vue.component('modal', {
                 <h4>Телефон: <span style="font-weight: normal">${
                     this.userPhone
                     }</span></h4>
+                <h4>Регион: <span style="font-weight: normal">${this.region ? this.region : 'Не определен'}</span></h4>
+                <h4>Город: <span style="font-weight: normal">${this.city ? this.city : 'Не определен'}</span></h4>
                 </div>
                     ${user.editionInfo ? user.editionInfo : ''}
              `
@@ -267,6 +271,7 @@ Vue.component('modal', {
                     setTimeout(() => {
                         functions.modalSuccessActivity('close');
                     }, 3000);
+                    yaCounter53646661.reachGoal('zakaz');
                 })
                 .catch(err => {
                     event.target.classList.remove('is-loading');
@@ -291,6 +296,10 @@ Vue.component('modal', {
         setInterval(() => {
             context.inputFieldNumber = this.$refs.phone.value;
         }, 500);
+        axios.get('https://api.sypexgeo.net/json/').then(res => {
+            context.region = res.data.region.name_ru;
+            context.city = res.data.city.name_ru;
+        });
     }
 });
 Vue.component('button-choose-program', {
@@ -415,7 +424,9 @@ new Vue({
     data: {
         userPhone: '',
         inputField: null,
-        userName: null
+        userName: null,
+        region: null,
+        city: null
     },
     computed: {
         requestButtonAvailable() {
@@ -443,15 +454,17 @@ new Vue({
                 html: `<div>
                         <h3>Контактные данные</h3>
                         <h4>
-                            Имя:  <span style="font-weight:normal">
+                            Имя: <span style="font-weight:normal">
                            ${this.userName ? this.userName : 'Клиент'}
                            </span>
                         </h4>
                         <h4>
-                            Номер:  <span style="font-weight:normal">
+                            Номер: <span style="font-weight:normal">
                                     ${this.userPhone}
                                     </span>
                         </h4>
+                        <h4>Регион: <span style="font-weight: normal">${this.region ? this.region : 'Не определен'}</span></h4>
+                        <h4>Город: <span style="font-weight: normal">${this.city ? this.city : 'Не определен'}</span></h4>
                     </div>`
             };
             axios
@@ -462,6 +475,7 @@ new Vue({
                         functions.modalSuccessActivity('close');
                     }, 5000);
                     this.$refs.button.classList.remove('is-loading');
+                    yaCounter53646661.reachGoal('zakaz');
                 })
                 .catch(err => {
                     console.log(err);
@@ -474,6 +488,10 @@ new Vue({
         setInterval(() => {
             context.inputField = context.$refs.number1.value;
         }, 500);
+        axios.get('https://api.sypexgeo.net/json/').then(res => {
+            context.region = res.data.region.name_ru;
+            context.city = res.data.city.name_ru;
+        });
     }
 });
 
