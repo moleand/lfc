@@ -485,9 +485,9 @@
                   <input class="input" placeholder="Введите свой номер" ref="number1" id="phone" type="tel" />
                 </div>
                 <div class="control">
-                  <a class="button is-info" @click="callRequest" :disabled="!requestButtonAvailable" ref="button">
+                  <button class="button is-info" @click="callRequest" :disabled="!requestButtonAvailable" ref="button">
                     Перезвоните мне!
-                  </a>
+                  </button>
                   <span>Перезвоним в течение 15 минут!</span>
                 </div>
               </div>
