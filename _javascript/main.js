@@ -206,9 +206,9 @@ Vue.component('modal', {
               <input class="input" type="text" placeholder="Ваш телефон" ref="phone" id="userPhone"/>
             </div>
             <div class="control">
-              <a class="button is-info" :disabled="submitDisabled" @click="makeOrder($event)" ref="button">
+              <button class="button is-info" :disabled="submitDisabled" @click="makeOrder($event)" ref="button">
                 Перезвоните мне!
-              </a>
+              </button>
             </div>
           </div>
         </section>
