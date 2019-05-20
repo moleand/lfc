@@ -617,7 +617,9 @@ new Vue({
 new Vue({
     el: '#address',
     data: {
-        address: msk
+        address: {
+            street: 'test',
+        }
     },
     methods: {
         downloadFile(file, name) {
@@ -642,6 +644,6 @@ new Vue({
         }
     },
     mounted: function () {
-        address = msk
+        // address = msk
     }
 });
