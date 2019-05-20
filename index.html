@@ -525,7 +525,7 @@
                 </span>
                 <span class="author-name">{{ review.name }}</span>
                 <p class="feedback-content">
-                  {{ editContent(review.content) }}
+                  {{ review.content }}
                 </p>
                 <div class="open-original" @click="downloadFile(review.image, review.name)">
                   <span class="icon">
