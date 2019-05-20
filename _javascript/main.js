@@ -14,6 +14,22 @@ const msk = {
         sut: "сб-вс: 11-18",
     },
 };
+var msk = {
+    street: '1-я Тверская-Ямская улица, 24',
+    phone: '8 (800) 555-93-84',
+    time: {
+        mon: "Понедельник-Пятница: 10-19",
+        sut: "Суббота-Воскресенье: 11-18"
+    }
+};
+var piter = {
+    street: 'Новочеркасский проспект дом 41/14',
+    phone: '8 (800) 555-90-53',
+    time: {
+        mon: "Понедельник-Пятница: 10-19",
+        sut: "Суббота-Воскресенье: 11-18"
+    }
+};
 
 const piter = {
     street: 'Новочеркасский проспект дом 41/14',
@@ -613,37 +629,27 @@ new Vue({
         });
     }
 });
-
-new Vue({
-    el: '#address',
-    data: {
-        address: {
-            street: 'test',
-        }
-    },
-    methods: {
-        downloadFile(file, name) {
-            window.open(`${config.hostUrl}/${file}`);
-            return true;
-            {
-                var link = document.createElement('a');
-                let format = null;
-                if (file.endsWith('.jpg')) {
-                    format = '.jpg';
-                } else if (file.endsWith('.png')) {
-                    format = '.png';
-                } else if (file.endsWith('.jpeg')) {
-                    format = '.jpeg';
-                }
-                if (format === null) throw {message: 'Ошибка в формате файла'};
-                link.download = name + format;
-                link.href = config.hostUrl + '/' + file;
-                console.log(link.href);
-                link.click();
-            }
-        }
-    },
-    mounted: function () {
-        // address = msk
+var address = new Vue({
+  el: '#addressTabs',
+  data: {
+    address: msk
+  },
+  methods: {
+    selectTab: function downloadFile(id, event) {
+      var li = $(event.target).parent('li');
+      if (!li.hasClass("is-active")) {
+        li.siblings("li").removeClass("is-active");
+        li.addClass("is-active");
+      }
+      if (id == 0) {
+        $("#map1").show();
+        $("#map2").hide();
+        this.address = msk;
+      } else {
+        $("#map1").hide();
+        $("#map2").show();
+        this.address = piter;
+      }
     }
+  }
 });
