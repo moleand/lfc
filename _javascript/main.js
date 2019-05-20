@@ -6,6 +6,24 @@ const config = {
     modalTitle: 'Укажите Ваш телефон и наш сотрудник свяжется с Вами!'
 };
 
+const msk = {
+    street: '1-я Тверская-Ямская улица, 24',
+    phone: '8 (800) 555-93-84',
+    time: {
+        mon: "пн-пт: 10-19",
+        sut: "сб-вс: 11-18",
+    },
+};
+
+const piter = {
+    street: 'Новочеркасский проспект дом 41/14',
+    phone: '8 (800) 555-90-53',
+    time: {
+        mon: "пн-пт: 10-19",
+        sut: "сб-вс: 11-18",
+    },
+};
+
 const modalTitles = [
     'Укажите Ваш телефон и наш сотрудник свяжется с Вами!',
     'Оставьте Ваш телефон и наш сотрудник свяжется с Вами для уточнения деталей'
@@ -593,5 +611,37 @@ new Vue({
                 });
             }, 100);
         });
+    }
+});
+
+new Vue({
+    el: '#address',
+    data: {
+        address: msk
+    },
+    methods: {
+        downloadFile(file, name) {
+            window.open(`${config.hostUrl}/${file}`);
+            return true;
+            {
+                var link = document.createElement('a');
+                let format = null;
+                if (file.endsWith('.jpg')) {
+                    format = '.jpg';
+                } else if (file.endsWith('.png')) {
+                    format = '.png';
+                } else if (file.endsWith('.jpeg')) {
+                    format = '.jpeg';
+                }
+                if (format === null) throw {message: 'Ошибка в формате файла'};
+                link.download = name + format;
+                link.href = config.hostUrl + '/' + file;
+                console.log(link.href);
+                link.click();
+            }
+        }
+    },
+    mounted: function () {
+        address = msk
     }
 });
