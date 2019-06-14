@@ -11,7 +11,7 @@
   <meta property="og:title" content="Ленинградский Финансовый Центр">
   <meta property="og:site_name" content="Ленинградский Финансовый Центр">
   <meta property="og:url" content="https://lenfincentr.ru/">
-  <meta property="og:description" content="Сбережения 13,95% годовых. Поможем подобрать Вам программу. Звоните!">
+  <meta property="og:description" content="Сбережения 13,5% годовых. Поможем подобрать Вам программу. Звоните!">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/LFC.png">
   <link rel="preload" href="img/LFC.png" as="image">
@@ -20,10 +20,11 @@
   <link rel="preconnect" href="https://api.sypexgeo.net" crossorigin>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" media="none" onload="if(media!='all')media='all'" />
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"
+    media="none" onload="if(media!='all')media='all'" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
-  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet"
-        media="none" onload="if(media!='all')media='all'" />
+  <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet" media="none"
+    onload="if(media!='all')media='all'" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -37,20 +38,24 @@
   <meta name="yandex-verification" content="2d91151da9dc9701" />
   <meta name="google-site-verification" content="5SbVp05FginIGzdadFZ_aaFgodsArPUhQTp5bHNxHyc" />
   <!-- Yandex.Metrika counter -->
-      <script type="text/javascript" >
-         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-         ym(53646661, "init", {
-              clickmap:true,
-              trackLinks:true,
-              accurateTrackBounce:true,
-              webvisor:true
-         });
-      </script>
-      <noscript><div><img src="https://mc.yandex.ru/watch/53646661" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+    ym(53646661, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/53646661" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
@@ -534,25 +539,25 @@
   <!-- <script type="text/javascript" src="lib/editPage.js" async></script> -->
   <script type="text/javascript" src="node_modules/siema/dist/siema.min.js"></script>
   <script>
-      function changeNumBasedOnRegion(){
-          axios.get(' https://api.sypexgeo.net/json/').then(function (res) {
-              let num = res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? '8 (800) 555-90-53' : '8 (800) 555-93-84';
-              let work = res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
-                  '              Суббота-Воскресенье с 11:00 до 18:00' : 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
-                  '              Суббота-Воскресенье с 10:00 до 18:00';
-              let numAsNum =  res.data.region.name_ru === 'Санкт-Петербург' ||  res.data.region.name_ru === 'Ленинградская область' ? 88005559053 : 88005559384;
+    function changeNumBasedOnRegion() {
+      axios.get(' https://api.sypexgeo.net/json/').then(function (res) {
+        let num = res.data.region.name_ru === 'Санкт-Петербург' || res.data.region.name_ru === 'Ленинградская область' ? '8 (800) 555-90-53' : '8 (800) 555-93-84';
+        let work = res.data.region.name_ru === 'Санкт-Петербург' || res.data.region.name_ru === 'Ленинградская область' ? 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+          '              Суббота-Воскресенье с 11:00 до 18:00' : 'Понедельник-Пятница с 10:00 до 20:00<br />\n' +
+          '              Суббота-Воскресенье с 10:00 до 18:00';
+        let numAsNum = res.data.region.name_ru === 'Санкт-Петербург' || res.data.region.name_ru === 'Ленинградская область' ? 88005559053 : 88005559384;
 
-              document.getElementById('workHours').innerHTML = work;
-              for(let i = 1; i < 3; i++) {
-                  let elem = document.getElementById('numreg'+i.toString());
-                  elem.innerText = num;
-                  if (elem.hasAttribute('href'))
-                      elem.setAttribute('href', 'tel:' + numAsNum.toString());
-              }
-          });
-      }
+        document.getElementById('workHours').innerHTML = work;
+        for (let i = 1; i < 3; i++) {
+          let elem = document.getElementById('numreg' + i.toString());
+          elem.innerText = num;
+          if (elem.hasAttribute('href'))
+            elem.setAttribute('href', 'tel:' + numAsNum.toString());
+        }
+      });
+    }
 
-      document.addEventListener('DOMContentLoaded', changeNumBasedOnRegion);
+    document.addEventListener('DOMContentLoaded', changeNumBasedOnRegion);
   </script>
 
   <script>

@@ -307,7 +307,7 @@ Vue.component('modal', {
             functions.modalActivity('close');
         },
         controlInput(event) {
-            $('#userPhone').mask('+7 (999) 999-99-99', {autoclear: false});
+            $('#userPhone').mask('+7 (999) 999-99-99', { autoclear: false });
             event.target.value = event.target.value.replace(/[^ A-zА-яё]/g, '');
             this.userName = event.target.value;
         }
@@ -364,11 +364,11 @@ new Vue({
                         result = 0;
                         result = (
                             +this.savings *
-                            (1 + (0.1395 * +this.period) / 12)
+                            (1 + (0.135 * +this.period) / 12)
                         ).toFixed(0);
                         this.income = (result - this.savings).toFixed(0);
                     } else {
-                        let percent = 0.1395;
+                        let percent = 0.135;
                         let savings = +this.savings;
                         for (let i = 0; i < this.period; i++) {
                             let addition = this.savingsPerMonth;
@@ -386,12 +386,12 @@ new Vue({
                     if (this.savingsPerMonth === 0) {
                         result = 0;
                         result = (
-                            +this.savings * Math.pow(1 + 0.1395 / 12, +this.period)
+                            +this.savings * Math.pow(1 + 0.135 / 12, +this.period)
                         ).toFixed(0);
                         this.income = (result - this.savings).toFixed(0);
                     } else {
                         let savings = this.savings;
-                        let percent = 0.1395;
+                        let percent = 0.135;
                         let period = this.period;
                         for (let i = 0; i < period; i++) {
                             let addition = this.savingsPerMonth;
@@ -586,7 +586,7 @@ new Vue({
                 } else if (file.endsWith('.jpeg')) {
                     format = '.jpeg';
                 }
-                if (format === null) throw {message: 'Ошибка в формате файла'};
+                if (format === null) throw { message: 'Ошибка в формате файла' };
                 link.download = name + format;
                 link.href = config.hostUrl + '/' + file;
                 console.log(link.href);
@@ -622,26 +622,26 @@ new Vue({
     }
 });
 var address = new Vue({
-  el: '#addressTabs',
-  data: {
-    address: msk
-  },
-  methods: {
-    selectTab: function downloadFile(id, event) {
-      var li = $(event.target).parent('li');
-      if (!li.hasClass("is-active")) {
-        li.siblings("li").removeClass("is-active");
-        li.addClass("is-active");
-      }
-      if (id == 0) {
-        $("#map1").show();
-        $("#map2").hide();
-        this.address = msk;
-      } else {
-        $("#map1").hide();
-        $("#map2").show();
-        this.address = piter;
-      }
+    el: '#addressTabs',
+    data: {
+        address: msk
+    },
+    methods: {
+        selectTab: function downloadFile(id, event) {
+            var li = $(event.target).parent('li');
+            if (!li.hasClass("is-active")) {
+                li.siblings("li").removeClass("is-active");
+                li.addClass("is-active");
+            }
+            if (id == 0) {
+                $("#map1").show();
+                $("#map2").hide();
+                this.address = msk;
+            } else {
+                $("#map1").hide();
+                $("#map2").show();
+                this.address = piter;
+            }
+        }
     }
-  }
 });
